@@ -5,9 +5,9 @@
   <subtitle>Irufano Blog</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://irufano.com/"/>
+  <link href="http://irufano.github.io/"/>
   <updated>2020-07-12T13:04:32.765Z</updated>
-  <id>http://irufano.com/</id>
+  <id>http://irufano.github.io/</id>
   
   <author>
     <name>Muhammad Irfan Hidayat</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Welcome to New World</title>
-    <link href="http://irufano.com/2020/07/12/World/"/>
-    <id>http://irufano.com/2020/07/12/World/</id>
+    <link href="http://irufano.github.io/2020/07/12/World/"/>
+    <id>http://irufano.github.io/2020/07/12/World/</id>
     <published>2020-07-12T12:15:36.000Z</published>
     <updated>2020-07-12T13:04:32.765Z</updated>
     
@@ -35,17 +35,17 @@
     </summary>
     
     
-      <category term="Post" scheme="http://irufano.com/categories/Post/"/>
+      <category term="Post" scheme="http://irufano.github.io/categories/Post/"/>
     
     
-      <category term="Post" scheme="http://irufano.com/tags/Post/"/>
+      <category term="Post" scheme="http://irufano.github.io/tags/Post/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="http://irufano.com/2020/07/12/hello-world/"/>
-    <id>http://irufano.com/2020/07/12/hello-world/</id>
+    <link href="http://irufano.github.io/2020/07/12/hello-world/"/>
+    <id>http://irufano.github.io/2020/07/12/hello-world/</id>
     <published>2020-07-12T08:38:04.295Z</published>
     <updated>2020-07-12T08:38:04.295Z</updated>
     
