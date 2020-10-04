@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://irufano.github.io/"/>
-  <updated>2020-07-12T13:04:32.765Z</updated>
+  <updated>2020-10-04T15:38:05.250Z</updated>
   <id>http://irufano.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>about_me</title>
+    <link href="http://irufano.github.io/2020/10/04/about-me/"/>
+    <id>http://irufano.github.io/2020/10/04/about-me/</id>
+    <published>2020-10-04T15:37:54.000Z</published>
+    <updated>2020-10-04T15:38:05.250Z</updated>
+    
+    <content type="html"><![CDATA[<p>test</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;test&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Welcome to New World</title>
