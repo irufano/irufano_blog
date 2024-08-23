@@ -12,7 +12,7 @@ export default function MyApp({ Component, pageProps }) {
     if (process.env.NODE_ENV === "production") {
       // Register page view
       const handleRouteChange = (url) => {
-        window.gtag("config", analyticsId, {
+        window.gtag("config", `"${analyticsId}"`, {
           page_path: url,
         });
       };
