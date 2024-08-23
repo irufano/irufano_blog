@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.my-static-blog.com
+
+# Sitemaps
+Sitemap: https://www.my-static-blog.com/sitemap.xml
