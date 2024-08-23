@@ -29,7 +29,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./out  # The output directory after 'npm run export'
+          publish_dir: ./out  # The output directory
 
       - name: Clear GitHub Pages Cache
         run: |
