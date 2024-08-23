@@ -28,7 +28,9 @@ jobs:
         run: |
           git config --global user.email "actions@github.com"
           git config --global user.name "github-actions"
-          git add -f out
+          git worktree add -f gh-pages out
+          cd gh-pages
+          git add -A
           git commit -m "Deploy to GitHub Pages"
           git push -f https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} HEAD:gh-pages
 
