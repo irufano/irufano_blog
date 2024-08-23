@@ -1,4 +1,4 @@
 module.exports = {
-  siteUrl: "https://www.my-static-blog.com",
+  siteUrl: "https://irufano.github.io",
   generateRobotsTxt: true, // (optional)
 };

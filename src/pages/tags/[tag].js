@@ -6,7 +6,7 @@ import { getAllTags } from "@/utils/getAllTags";
 export default function TagPage({ tag, posts }) {
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-4">Posts tagged with "{tag}"</h1>
+      <h1 className="text-3xl font-bold mb-4">Posts tagged with {tag}</h1>
       <ul>
         {posts.map((post) => (
           <li key={post?.slug} className="mb-4">
