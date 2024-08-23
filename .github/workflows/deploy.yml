@@ -25,10 +25,12 @@ jobs:
         run: npm run build
 
       - name: Deploy to GitHub Pages
-        uses: GitHubPages/action@v1
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./out
+        run: |
+          git config --global user.email "actions@github.com"
+          git config --global user.name "github-actions"
+          git add -f out
+          git commit -m "Deploy to GitHub Pages"
+          git push -f https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} HEAD:gh-pages
 
       # - name: Deploy to GitHub Pages
       #   if: ${{ github.ref == 'refs/heads/dev' }}
