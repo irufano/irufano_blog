@@ -3,8 +3,10 @@ import SEO from "../../next-seo.config";
 import Script from "next/script";
 import { useEffect } from "react";
 import "../styles/globals.css";
+import { useRouter } from "next/router";
 
 export default function MyApp({ Component, pageProps }) {
+  const router = useRouter();
   const analyticsId = "G-787PK2XJ06";
   useEffect(() => {
     if (process.env.NODE_ENV === "production") {
