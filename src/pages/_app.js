@@ -2,7 +2,7 @@ import { DefaultSeo } from "next-seo";
 import SEO from "../../next-seo.config";
 import Script from "next/script";
 import { useEffect } from "react";
-import '../styles/globals.css'
+import "../styles/globals.css";
 
 export default function MyApp({ Component, pageProps }) {
   const analyticsId = "G-787PK2XJ06";
