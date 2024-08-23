@@ -30,7 +30,7 @@ export default function SearchComponent({ posts }) {
         {filteredPosts.length > 0 ? (
           filteredPosts.map((post) => (
             <li key={post.slug} className="mb-2">
-              <Link href={`/post/${post.slug}`}>
+              <Link href={`/posts/${post.slug}`}>
                 {post?.meta?.title ?? "-"}
               </Link>
             </li>
