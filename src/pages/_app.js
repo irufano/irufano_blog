@@ -2,6 +2,7 @@ import { DefaultSeo } from "next-seo";
 import SEO from "../../next-seo.config";
 import Script from "next/script";
 import { useEffect } from "react";
+import '../styles/globals.css'
 
 export default function MyApp({ Component, pageProps }) {
   const analyticsId = "G-787PK2XJ06";
@@ -22,15 +23,17 @@ export default function MyApp({ Component, pageProps }) {
 
   return (
     <>
-      <Script
-        strategy="afterInteractive"
-        src={`https://www.googletagmanager.com/gtag/js?id=${analyticsId}`}
-      />
-      <Script
-        id="google-analytics"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
+      {process.env.NODE_ENV === "production" ? (
+        <>
+          <Script
+            strategy="afterInteractive"
+            src={`https://www.googletagmanager.com/gtag/js?id=${analyticsId}`}
+          />
+          <Script
+            id="google-analytics"
+            strategy="afterInteractive"
+            dangerouslySetInnerHTML={{
+              __html: `
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
@@ -38,8 +41,12 @@ export default function MyApp({ Component, pageProps }) {
               page_path: window.location.pathname,
             });
           `,
-        }}
-      />
+            }}
+          />{" "}
+        </>
+      ) : (
+        <></>
+      )}
       <DefaultSeo {...SEO} />
       <Component {...pageProps} />
     </>

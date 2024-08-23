@@ -5,8 +5,8 @@ import Link from "next/link";
 
 export default function HomePage({ posts }) {
   return (
-    <div>
-      <h1>My Blog</h1>
+    <div className="container mx-auto p-4 py-16">
+      <h1 className="text-4xl font-extrabold text-emerald-500">IRUFANO INSIGHT</h1>
       <SearchComponent posts={posts} />
       <ul>
         {posts.map((post) => (
