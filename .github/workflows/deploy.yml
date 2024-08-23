@@ -25,18 +25,24 @@ jobs:
         run: npm run build
 
       - name: Deploy to GitHub Pages
-        if: ${{ github.ref == 'refs/heads/dev' }}
-        uses: peaceiris/actions-gh-pages@v4
+        uses: GitHubPages/action@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./out  # The output directory
+          publish_dir: ./out
 
-      - name: Clear GitHub Pages Cache
-        run: |
-          git config --global user.name "${{ github.actor }}"
-          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
-          git checkout --orphan temp_branch
-          git add -A
-          git commit -m "Clearing cache for new deployment"
-          git push --force origin temp_branch
-          git push --delete origin temp_branch
+      # - name: Deploy to GitHub Pages
+      #   if: ${{ github.ref == 'refs/heads/dev' }}
+      #   uses: peaceiris/actions-gh-pages@v4
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     publish_dir: ./out  # The output directory
+
+      # - name: Clear GitHub Pages Cache
+      #   run: |
+      #     git config --global user.name "${{ github.actor }}"
+      #     git config --global user.email "${{ github.actor }}@users.noreply.github.com"
+      #     git checkout --orphan temp_branch
+      #     git add -A
+      #     git commit -m "Clearing cache for new deployment"
+      #     git push --force origin temp_branch
+      #     git push --delete origin temp_branch
