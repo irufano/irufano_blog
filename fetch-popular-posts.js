@@ -14,7 +14,8 @@ async function getPopularPosts() {
     property: `properties/${PROPERTY_ID}`,
     dateRanges: [
       {
-        startDate: "30daysAgo",
+        // startDate: "30daysAgo",
+        startDate: '2024-07-01',
         endDate: "today",
       },
     ],

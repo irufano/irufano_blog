@@ -1,8 +1,7 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import markdownToHtml from "./markdownToHtml";
-// import { marked } from "marked";
+import { markdownToHtml } from "./markdownToHtml";
 
 const postsDirectory = path.join(process.cwd(), "src/posts");
 
@@ -30,15 +29,26 @@ export function getPostBySlug(slug) {
 
   lines.forEach((line) => {
     if (line.startsWith("# ")) {
-      data.mainTitle = line.replace("# ", "");
+      data.mainTitle = line.replace("# ", "").trim();
     } else if (line.startsWith("## ")) {
       if (currentSection) sections.push(currentSection);
       currentSection = {
-        title: line.replace("## ", ""),
+        title: line.replace("## ", "").trim(),
+        id: line
+          .replace("## ", "")
+          .toLowerCase()
+          .replace(/[^a-z0-9]+/g, "-"),
         children: [],
       };
     } else if (line.startsWith("### ") && currentSection) {
-      currentSection.children.push(line.replace("### ", ""));
+      let childrenSection = {
+        title: line.replace("### ", "").trim(),
+        id: line
+          .replace("### ", "")
+          .toLowerCase()
+          .replace(/[^a-z0-9]+/g, "-"),
+      };
+      currentSection.children.push(childrenSection);
     }
   });
 
@@ -46,10 +56,18 @@ export function getPostBySlug(slug) {
 
   const htmlSections = sections.map((section) => ({
     title: section.title,
+    id: section.id,
     children: section.children.map((child) => child),
   }));
 
-  console.log(htmlSections);
+  sections.forEach((a) => {
+    console.log(a);
+    a.children?.forEach((b) => {
+      console.log(b);
+    });
+  });
+
+  console.log(htmlContent);
 
   return {
     slug,

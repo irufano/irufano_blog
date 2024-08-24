@@ -16,7 +16,7 @@
   }
 }
 
-body {
+/* body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
@@ -24,10 +24,30 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+} */
+
+h1 {
+  @apply text-4xl font-bold mt-4 mb-2 text-emerald-600;
+}
+
+h2 {
+  @apply text-3xl font-semibold mt-4 mb-2 text-emerald-600;
+}
+
+h3 {
+  @apply text-2xl font-medium mt-4 mb-2 text-emerald-600;
+}
+
+h4 {
+  @apply text-xl mt-4 mb-2;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+html {
+  scroll-behavior: smooth;
 }

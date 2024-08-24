@@ -1,4 +1,4 @@
-name: Deploy Next.js Static Site
+name: Deploy Irufano Insight (Next.js Static Site)
 
 on:
   push:

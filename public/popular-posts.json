@@ -1,1 +1,22 @@
-[]
+[
+  {
+    "path": "/",
+    "pageviews": "12"
+  },
+  {
+    "path": "/posts/fisrt-post",
+    "pageviews": "5"
+  },
+  {
+    "path": "/posts/second-post",
+    "pageviews": "4"
+  },
+  {
+    "path": "/tags/JavaScript",
+    "pageviews": "1"
+  },
+  {
+    "path": "/tags/React",
+    "pageviews": "1"
+  }
+]
