@@ -1,10 +1,10 @@
 export default {
-  title: "My Static Blog",
-  description: "A blog built with Next.js and Markdown.",
+  title: "Irufano Insight",
+  description: "Insights, ideas, stories and tutorials from irufano",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://www.my-static-blog.com/",
-    site_name: "My Static Blog",
+    site_name: "irufano insight",
   },
 };

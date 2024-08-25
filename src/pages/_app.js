@@ -9,7 +9,7 @@ import "../styles/globals.css";
 export default function MyApp({ Component, pageProps }) {
   const router = useRouter();
   const analyticsId = "G-787PK2XJ06";
-  useEffect(() => {
+  useEffect(() => {// Ensure Prism.js highlights the code blocks
     if (process.env.NODE_ENV === "production") {
       // Register page view
       const handleRouteChange = (url) => {
