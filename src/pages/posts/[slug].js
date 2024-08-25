@@ -78,7 +78,7 @@ export default function PostPage({ post }) {
           }, 2000);
         });
       }
-    });s
+    });
   }, []);
 
   return (
