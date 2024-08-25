@@ -2,7 +2,7 @@ import ThemeToggle from "./ThemeToggle";
 
 export default function Layout({ children }) {
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+    <div className="min-h-screen">
       <header>
         <div className="flex justify-between items-center p-4 bg-emerald-300 dark:bg-gray-800 fixed">
           <h1 className="text-2xl font-bold mr-4">My Blog</h1>

@@ -1,5 +1,6 @@
 import Layout from "@/components/Layout";
 import { getAllPosts, getPostBySlug } from "../../utils/posts";
+import { DocumentDuplicateIcon } from "@heroicons/react/24/outline";
 // import Prism from "prismjs";
 // import hljs from 'highlight.js';
 // import "prismjs/components/prism-jsx"; // Import any other languages you need
@@ -89,6 +90,7 @@ export default function PostPage({ post }) {
           </nav>
         )}
 
+        
         {/* Post Content */}
         <div
           className="prose prose-lg dark:prose-dark"

@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: 'class',
+  darkMode: "class",
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -8,10 +8,50 @@ module.exports = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      fontFamily: {
+        sans: ["Open Sans", "sans-serif"],
+      },
+      colors: {
+        primary: {
+          light: "#379EB1",
+          DEFAULT: "#379EB1",
+          dark: "#41BED4",
+        },
+        secondary: {
+          light: "#D9F2F6",
+          DEFAULT: "#D9F2F6",
+          dark: "#324548",
+        },
+        accent: {
+          light: "#42BED4",
+          DEFAULT: "#42BED4",
+          dark: "#47CBE3",
+        },
+        surface: {
+          light: "#FFFFFF",
+          DEFAULT: "#FFFFFF",
+          dark: "#3E3E3E",
+        },
+        surfaceSection: {
+          light: "#D9F2F6",
+          DEFAULT: "#D9F2F6",
+          dark: "#16373B",
+        },
+        background: {
+          light: "#FAFAFA",
+          DEFAULT: "#FAFAFA",
+          dark: "#1D2026",
+        },
+        text: {
+          light: "#374151",
+          DEFAULT: "#374151",
+          dark: "#f9fafb",
+        },
+        expansion: {
+          light: "#EDF1F6",
+          DEFAULT: "#EDF1F6",
+          dark: "#494B4D",
+        },
       },
       typography: (theme) => ({
         DEFAULT: {
@@ -36,25 +76,25 @@ module.exports = {
               borderLeftColor: theme("colors.gray.300"),
               color: theme("colors.gray.600"),
             },
-            code: {
-              color: theme("colors.pink.500"),
-              backgroundColor: theme("colors.gray.100"),
-              padding: "0.25rem 0.5rem",
-              borderRadius: theme("borderRadius.md"),
-            },
-            pre: {
-              backgroundColor: theme("colors.gray.900"),
-              color: theme("colors.gray.100"),
-              padding: "1rem",
-              borderRadius: theme("borderRadius.md"),
-              overflowX: "auto",
-            },
-            "pre code": {
-              backgroundColor: "transparent",
-              padding: 0,
-              borderRadius: 0,
-              fontSize: "0.875rem",
-            },
+            // code: {
+            //   color: theme("colors.pink.500"),
+            //   backgroundColor: theme("colors.gray.100"),
+            //   padding: "0.25rem 0.5rem",
+            //   borderRadius: theme("borderRadius.md"),
+            // },
+            // pre: {
+            //   backgroundColor: theme("colors.gray.900"),
+            //   color: theme("colors.gray.100"),
+            //   padding: "1rem",
+            //   borderRadius: theme("borderRadius.md"),
+            //   overflowX: "auto",
+            // },
+            // "pre code": {
+            //   backgroundColor: "transparent",
+            //   padding: 0,
+            //   borderRadius: 0,
+            //   fontSize: "0.875rem",
+            // },
           },
         },
         dark: {
@@ -79,14 +119,14 @@ module.exports = {
               borderLeftColor: theme("colors.gray.700"),
               color: theme("colors.gray.400"),
             },
-            code: {
-              color: theme("colors.pink.400"),
-              backgroundColor: theme("colors.gray.800"),
-            },
-            pre: {
-              backgroundColor: theme("colors.gray.800"),
-              color: theme("colors.gray.300"),
-            },
+            // code: {
+            //   color: theme("colors.pink.400"),
+            //   backgroundColor: theme("colors.gray.800"),
+            // },
+            // pre: {
+            //   backgroundColor: theme("colors.gray.800"),
+            //   color: theme("colors.gray.300"),
+            // },
           },
         },
       }),

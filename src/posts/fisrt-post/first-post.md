@@ -14,7 +14,7 @@ This post includes an image.
 
 ![Alt text for the image](/images/image.png)
 
-```javascript title="hello-world.js"
+```javascript title="gokil gaes"
 class Shape {
   draw() {
     console.log("Uhhh maybe override me");
@@ -27,6 +27,21 @@ class Circle {
   }
 }
 ```
+
+
+```js
+export function getAllPosts() {
+  const slugs = getPostSlugs();
+  return slugs.map((slug) => {
+    const post = getPostBySlug(slug);
+    return {
+      slug: post.slug,
+      meta: post.meta,
+    };
+  });
+}
+```
+
 - dasdasd
 - sadasd
 
