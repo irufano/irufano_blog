@@ -16,7 +16,7 @@ export default function Posts({ allPosts }) {
   return (
     <Layout>
       <div className="container mx-auto p-4 py-16">
-        <h1 className="text-4xl font-extrabold py-4">Home</h1>
+        <h1 className="text-3xl font-extrabold py-4">Blog Posts</h1>
         <ul>
           {allPosts.map((post) => (
             <li key={post.slug}>

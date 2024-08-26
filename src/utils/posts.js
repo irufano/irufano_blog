@@ -8,7 +8,7 @@ import toc from "remark-toc";
 import highlight from "highlight.js";
 import { visit } from "unist-util-visit";
 
-const postsDirectory = path.join(process.cwd(), "src/posts");
+const postsDirectory = path.join(process.cwd(), "posts");
 
 export function getPostSlugs() {
   return fs.readdirSync(postsDirectory).filter((dir) => {
