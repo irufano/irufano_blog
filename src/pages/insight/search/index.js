@@ -77,7 +77,7 @@ export default function SearchPage({ posts }) {
       .indexOf(keyword.toLowerCase());
 
     if (keywordIndex === -1) {
-      return "Keyword not found.";
+      return "";
     }
 
     // Calculate the start index to get a substring of 36 characters
@@ -98,7 +98,7 @@ export default function SearchPage({ posts }) {
     // const keywordRegex = new RegExp(keyword, "gi");
     substring = highlightText(substring, keyword);
 
-    return substring;
+    return `...${substring}...`;
   }
 
   function highlightText(text, keyword) {
@@ -106,7 +106,7 @@ export default function SearchPage({ posts }) {
     return text.replace(
       keywordRegex,
       (match) =>
-        `<span style="background-color: yellow;">${match}</span>`
+        `<span style="background-color: yellow; color: black;">${match}</span>`
     );
   }
 
@@ -156,7 +156,6 @@ export default function SearchPage({ posts }) {
                 <p className="text-lg font-semibold">{post.meta?.date}</p>
                 {searchQuery && (
                   <div className="text-base">
-                    ...
                     <span
                       className="prose prose-lg dark:prose-dark"
                       dangerouslySetInnerHTML={{
@@ -170,7 +169,6 @@ export default function SearchPage({ posts }) {
                       post.rawContent,
                       searchQuery.toLowerCase()
                     )} */}
-                    ...
                   </div>
                 )}
               </li>
