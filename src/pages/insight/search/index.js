@@ -1,10 +1,10 @@
-// src/pages/search.js
-
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { getPosts } from "@/utils/posts";
 import Layout from "@/components/Layout";
+import SEOInsight from "../../../../insight-next-seo.config";
+import SEO from "@/components/SEO";
 
 export async function getStaticProps() {
   const posts = getPosts(1, Infinity).paginatedPosts;
@@ -112,6 +112,13 @@ export default function SearchPage({ posts }) {
 
   return (
     <Layout>
+      <SEO
+        title={SEOInsight.title}
+        description={SEOInsight.description}
+        ogSiteName={SEOInsight.openGraph.site_name}
+        url={SEOInsight.openGraph.url}
+        images={SEOInsight.openGraph.images}
+      />
       <div className="container mx-auto px-4 pt-16">
         <h1 className="text-3xl font-bold mb-4">Search Posts</h1>
 

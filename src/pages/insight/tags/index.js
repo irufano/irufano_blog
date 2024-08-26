@@ -1,6 +1,8 @@
 import Layout from "@/components/Layout";
 import { getAllTags } from "@/utils/posts";
 import Link from "next/link";
+import SEOInsight from "../../../../insight-next-seo.config";
+import SEO from "@/components/SEO";
 
 export async function getStaticProps() {
   const tags = getAllTags();
@@ -15,6 +17,13 @@ export async function getStaticProps() {
 export default function TagsPage({ tags }) {
   return (
     <Layout>
+      <SEO
+        title={SEOInsight.title}
+        description={SEOInsight.description}
+        ogSiteName={SEOInsight.openGraph.site_name}
+        url={SEOInsight.openGraph.url}
+        images={SEOInsight.openGraph.images}
+      />
       <div className="container mx-auto px-4 pt-20">
         <h1 className="text-3xl font-bold mb-4">Tags</h1>
         <ul>

@@ -2,6 +2,9 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { getAllPostsByTag, getAllTags } from "@/utils/posts";
+import Layout from "@/components/Layout";
+import SEOInsight from "../../../../insight-next-seo.config";
+import SEO from "@/components/SEO";
 
 export async function getStaticPaths() {
   const tags = getAllTags();
@@ -58,41 +61,50 @@ export default function TagPage({ posts, tag }) {
   };
 
   return (
-    <div className="container mx-auto px-4">
-      <h1 className="text-3xl font-bold mb-4">Posts Tagged: {tag}</h1>
-      <ul>
-        {paginatedPosts.map((post) => (
-          <li key={post.slug} className="mb-4">
-            <Link href={`/insight/posts/${post.slug}`}>
-              <p className="text-blue-500">{post.meta?.title}</p>
-            </Link>
-          </li>
-        ))}
-      </ul>
+    <Layout>
+       <SEO
+        title={SEOInsight.title}
+        description={SEOInsight.description}
+        ogSiteName={SEOInsight.openGraph.site_name}
+        url={SEOInsight.openGraph.url}
+        images={SEOInsight.openGraph.images}
+      />
+      <div className="container mx-auto px-4">
+        <h1 className="text-3xl font-bold mb-4">Posts Tagged: {tag}</h1>
+        <ul>
+          {paginatedPosts.map((post) => (
+            <li key={post.slug} className="mb-4">
+              <Link href={`/insight/posts/${post.slug}`}>
+                <p className="text-blue-500">{post.meta?.title}</p>
+              </Link>
+            </li>
+          ))}
+        </ul>
 
-      {totalPages > 1 && (
-        <div className="mt-8 flex justify-between">
-          <button
-            onClick={() => handlePageChange(currentPage - 1)}
-            disabled={currentPage === 1}
-            className="bg-emerald-500 text-gray-800 px-4 py-2 rounded disabled:bg-gray-300"
-          >
-            Previous
-          </button>
+        {totalPages > 1 && (
+          <div className="mt-8 flex justify-between">
+            <button
+              onClick={() => handlePageChange(currentPage - 1)}
+              disabled={currentPage === 1}
+              className="bg-emerald-500 text-gray-800 px-4 py-2 rounded disabled:bg-gray-300"
+            >
+              Previous
+            </button>
 
-          <div className="flex items-center">
-            Page {currentPage} of {totalPages}
+            <div className="flex items-center">
+              Page {currentPage} of {totalPages}
+            </div>
+
+            <button
+              onClick={() => handlePageChange(currentPage + 1)}
+              disabled={currentPage === totalPages}
+              className="bg-emerald-500 text-gray-800 px-4 py-2 rounded"
+            >
+              Next
+            </button>
           </div>
-
-          <button
-            onClick={() => handlePageChange(currentPage + 1)}
-            disabled={currentPage === totalPages}
-            className="bg-emerald-500 text-gray-800 px-4 py-2 rounded"
-          >
-            Next
-          </button>
-        </div>
-      )}
-    </div>
+        )}
+      </div>
+    </Layout>
   );
 }

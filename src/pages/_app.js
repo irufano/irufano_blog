@@ -1,5 +1,5 @@
 import { DefaultSeo } from "next-seo";
-import SEO from "../../next-seo.config";
+import DefaultSEOConfig from "../../next-seo.config";
 import Script from "next/script";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
@@ -68,7 +68,7 @@ export default function MyApp({ Component, pageProps }) {
       ) : (
         <></>
       )}
-      <DefaultSeo {...SEO} />
+      <DefaultSeo {...DefaultSEOConfig} />
       <Component {...pageProps} />
     </>
   );

@@ -1,6 +1,8 @@
 import Layout from "@/components/Layout";
 import { getAllPosts, getPostBySlug } from "../../../utils/posts";
 import { useEffect } from "react";
+import SEO from "@/components/SEO";
+import SEOInsight from "../../../../insight-next-seo.config";
 
 export async function getStaticPaths() {
   // Get all posts without pagination
@@ -21,6 +23,13 @@ export async function getStaticProps({ params }) {
 }
 
 export default function PostPage({ post }) {
+  const title = post.meta?.title;
+  const description = post.meta?.description;
+  const date = post.meta?.date;
+  const sections = post.sections ?? [];
+  const content = post.content;
+  const tags = post.meta?.tags ?? [];
+
   useEffect(() => {
     // handle copy code
     document.addEventListener("click", function (e) {
@@ -42,26 +51,31 @@ export default function PostPage({ post }) {
 
   return (
     <Layout>
+      <SEO
+        title={title}
+        description={description}
+        ogSiteName={SEOInsight.openGraph.site_name}
+        url={SEOInsight.openGraph.url}
+        images={SEOInsight.openGraph.images}
+      />
       <article className="prose prose-lg dark:prose-dark mx-auto p-4">
-        <h1 className="text-4xl font-bold mb-4 text-blue-700">
-          {post.meta.title}
-        </h1>
-        <p className="text-gray-500 mb-8">{post.meta.date}</p>
+        <h1 className="text-4xl font-bold mb-4 text-blue-700">{title}</h1>
+        <p className="text-gray-500 mb-8">{date}</p>
 
         {/* Display Section Links */}
-        {post.sections.length > 0 && (
+        {sections.length > 0 && (
           <nav className="mb-8">
             <h2 className="text-2xl font-semibold mb-2">Sections</h2>
             <ul className="list-disc ml-6">
               {post.sections.map((heading) => (
-                <li key={heading.id} className="mb-1">
+                <li key={heading?.id} className="mb-1">
                   <a
-                    href={`#${heading.id}`}
+                    href={`#${heading?.id}`}
                     className={`text-blue-600 hover:text-blue-800 ${
-                      heading.level === "3" ? "ml-4" : ""
+                      heading?.level === "3" ? "ml-4" : ""
                     }`}
                   >
-                    {heading.text}
+                    {heading?.text}
                   </a>
                 </li>
               ))}
@@ -72,14 +86,14 @@ export default function PostPage({ post }) {
         {/* Post Content */}
         <div
           className="prose prose-lg dark:prose-dark"
-          dangerouslySetInnerHTML={{ __html: post.content }}
+          dangerouslySetInnerHTML={{ __html: content }}
         />
 
         {/* Tags */}
         <div className="mt-8">
           <h4 className="text-lg font-semibold">Tags:</h4>
           <ul className="list-none flex space-x-3 mt-2">
-            {post.meta.tags.map((tag) => (
+            {tags.map((tag) => (
               <li
                 key={tag}
                 className="text-sm bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 px-2 py-1 rounded"

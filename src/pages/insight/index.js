@@ -1,6 +1,8 @@
 import Layout from "@/components/Layout";
+import SEO from "@/components/SEO";
 import { getPosts } from "@/utils/posts";
 import Link from "next/link";
+import SEOInsight from "../../../insight-next-seo.config";
 
 export async function getStaticProps() {
   const page = 1; // Start with the first page
@@ -19,6 +21,13 @@ export async function getStaticProps() {
 export default function Insights({ posts, currentPage, totalPages }) {
   return (
     <Layout>
+      <SEO
+        title={SEOInsight.title}
+        description={SEOInsight.description}
+        ogSiteName={SEOInsight.openGraph.site_name}
+        url={SEOInsight.openGraph.url}
+        images={SEOInsight.openGraph.images}
+      />
       <div className="container mx-auto p-4 pt-32">
         <h1 className="text-4xl font-bold mb-8">Blog Posts</h1>
         <ul>
