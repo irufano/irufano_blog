@@ -17,10 +17,6 @@ export function getPostSlugs() {
   });
 }
 
-const copyToClipboard = () => {
-  alert("copi dulu bang");
-};
-
 export function getPostBySlug(slug) {
   const dirPath = path.join(postsDirectory, slug);
   const files = fs.readdirSync(dirPath);
@@ -56,7 +52,7 @@ export function getPostBySlug(slug) {
 
         node.type = "html";
         node.value = `
-          <div class="relative">
+          <div class="header-code">
           <div class="title-code">
             <span>${title}</span> 
               <button class="copy-code" data-code-id="${codeId}" aria-label="Copy code">
@@ -82,7 +78,6 @@ export function getPostBySlug(slug) {
           <div class="pre-code">
           <pre><code id="${codeId}" class="${language}">${highlightedCode}</code></pre>
           </div>
-          
           </div>
         `;
       });
@@ -102,8 +97,8 @@ export function getPostBySlug(slug) {
   return {
     slug: slug,
     meta: data,
-    contentHtml,
-    headings,
+    content: contentHtml,
+    sections: headings,
   };
 }
 

@@ -21,6 +21,10 @@ body {
   @apply rounded-t-none;
 }
 
+.header-code {
+  @apply relative;
+}
+
 .title-code {
   @apply bg-gray-700;
   @apply text-white text-base;
