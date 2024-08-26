@@ -132,3 +132,35 @@ export function getPosts(page = 1, postsPerPage = 5) {
     totalPosts,
   };
 }
+
+export function getAllTags() {
+  const slugs = getPostSlugs();
+  const tags = new Set();
+
+  slugs.forEach((slug) => {
+    const post = getPostBySlug(slug);
+    if (post.meta.tags) {
+      post.meta?.tags.forEach((tag) => tags.add(tag));
+    }
+  });
+
+  return Array.from(tags);
+}
+
+export function getAllPostsByTag(tag) {
+  const slugs = getPostSlugs();
+  const posts = slugs
+    .map((slug) => {
+      const post = getPostBySlug(slug);
+
+      return {
+        slug: post.slug,
+        meta: post.meta,
+        rawContent: post.raw,
+      };
+    })
+    .filter((post) => post.meta?.tags && post.meta?.tags.includes(tag))
+    .sort((a, b) => new Date(b.meta.date) - new Date(a.meta.date));
+
+  return posts;
+}
