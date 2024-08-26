@@ -8,7 +8,7 @@ tags:
   - Next.js
 ---
 
-# My Blog Post with an Image
+# GG GAMING
 
 This post includes an image.
 

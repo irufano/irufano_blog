@@ -21,8 +21,6 @@ export function getPostBySlug(slug) {
   const dirPath = path.join(postsDirectory, slug);
   const files = fs.readdirSync(dirPath);
 
-  console.log(slug);
-
   // Find the first Markdown file in the directory
   const markdownFile = files.find((file) => file.endsWith(".md"));
 
@@ -33,8 +31,7 @@ export function getPostBySlug(slug) {
   const fullPath = path.join(dirPath, markdownFile);
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
-  let text = "Hello world, welcome to the universe.";
-  let result = text.includes("world", 12);
+
   const processedContent = remark()
     .use(rSlug) // Adds slugs to headings
     .use(toc) // Generates a table of contents
@@ -99,6 +96,7 @@ export function getPostBySlug(slug) {
     meta: data,
     content: contentHtml,
     sections: headings,
+    raw: content,
   };
 }
 
@@ -109,6 +107,28 @@ export function getAllPosts() {
     return {
       slug: post.slug,
       meta: post.meta,
+      rawContent: post.raw,
     };
   });
+}
+
+export function getPosts(page = 1, postsPerPage = 5) {
+  const allPosts = getAllPosts().sort(
+    (a, b) => new Date(b.meta.date) - new Date(a.meta.date)
+  ); // Sort by date;
+
+  const totalPosts = allPosts.length;
+  const start = (page - 1) * postsPerPage;
+  const end = start + postsPerPage;
+  let paginatedPosts;
+  if (postsPerPage === Infinity) {
+    paginatedPosts = allPosts;
+  } else {
+    paginatedPosts = allPosts.slice(start, end);
+  }
+
+  return {
+    paginatedPosts,
+    totalPosts,
+  };
 }

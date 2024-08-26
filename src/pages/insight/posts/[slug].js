@@ -1,14 +1,18 @@
 import Layout from "@/components/Layout";
-import { getAllPosts, getPostBySlug } from "../../utils/posts";
+import { getAllPosts, getPostBySlug } from "../../../utils/posts";
 import { useEffect } from "react";
 
 export async function getStaticPaths() {
+  // Get all posts without pagination
   const posts = getAllPosts();
   const paths = posts.map((post) => ({
     params: { slug: post.slug },
   }));
 
-  return { paths, fallback: false };
+  return {
+    paths,
+    fallback: false, // You can also use 'blocking' or 'true' if you prefer.
+  };
 }
 
 export async function getStaticProps({ params }) {

@@ -1,32 +1,33 @@
-import Link from "next/link";
 import Layout from "@/components/Layout";
-import { getAllPosts } from "@/utils/posts";
+import { getPosts } from "@/utils/posts";
+import Link from "next/link";
 
-export async function getStaticProps() {
-  const allPosts = getAllPosts();
+export async function getStaticProps({ params }) {
+  const page = 1; // Start with the first page
+  const postsPerPage = 5;
+  const { paginatedPosts } = getPosts(page, postsPerPage);
 
   return {
     props: {
-      allPosts,
+      posts: paginatedPosts,
     },
   };
 }
 
-export default function Posts({ allPosts }) {
+export default function Home({ posts }) {
   return (
     <Layout>
-      <div className="container mx-auto p-4 py-16">
-        <h1 className="text-4xl font-extrabold py-4">Home</h1>
+      <div className="container mx-auto p-4 pt-32">
+        <h1 className="text-4xl font-bold mb-8">HOME</h1>
         <ul>
-          {allPosts.map((post) => (
+          {posts.map((post) => (
             <li key={post.slug}>
-              <Link href={`/insight/${post.slug}`} className="p-6">
-                <div>
-                  <h2 className="text-xl font-semibold">{post.meta.title}</h2>
-                  <p className="text-base">{post.meta.date}</p>
-                  <p className="text-sm">{post.meta.tags.join(", ")}</p>
-                </div>
+              <Link href={`/insight/posts/${post.slug}`}>
+                <p className="text-2xl font-semibold text-blue-600 hover:underline">
+                  {post.meta.title}
+                </p>
               </Link>
+              <p className="text-gray-600">{post.meta.date}</p>
             </li>
           ))}
         </ul>
