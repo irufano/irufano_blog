@@ -40,7 +40,7 @@ module.exports = {
         background: {
           light: "#FAFAFA",
           DEFAULT: "#FAFAFA",
-          dark: "#1D2026",
+          dark: "#161819",
         },
         text: {
           light: "#374151",
