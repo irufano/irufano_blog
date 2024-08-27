@@ -2,9 +2,9 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { getAllPostsByTag, getAllTags } from "@/utils/posts";
-import Layout from "@/components/Layout";
 import SEOInsight from "../../../../insight-next-seo.config";
 import SEO from "@/components/Core/SEO";
+import Layout from "@/components/Core/Layout";
 
 export async function getStaticPaths() {
   const tags = getAllTags();
