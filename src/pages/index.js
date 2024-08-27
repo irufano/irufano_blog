@@ -24,21 +24,25 @@ export default function Home({ posts }) {
         {/* First Image */}
         <div className="absolute top-1/2 left-2">
           <div className="relative" style={{ filter: "blur(100px)" }}>
-            <Image src={Bg} className="w-32 md:w-72" />
+            <Image src={Bg} className="w-72" />
           </div>
         </div>
 
         {/* Second Image */}
         <div className="absolute top-1/4 right-8">
           <div className="relative" style={{ filter: "blur(100px)" }}>
-            <Image src={Bg} className="w-32 md:w-72" />
+            <Image src={Bg} className="w-72" />
           </div>
         </div>
 
-        <div className=" relative flex items-center justify-center py-48">
+        <div className=" relative flex items-center justify-center py-20">
           <div className="container mx-auto p-4">
             <div className="md:flex items-center justify-center">
-              <div className="mr-0 md:mr-4 mb-6 md:mb-0">
+              <div className="inline-block md:hidden w-full">
+                <Greeting />
+              </div>
+
+              <div className="mr-0 md:mr-4 mt-6 md:mt-0">
                 <h1 className="text-2xl md:text-4xl font-bold text-text dark:text-text-dark">
                   Developer Portal
                 </h1>
@@ -49,7 +53,9 @@ export default function Home({ posts }) {
                 </p>
               </div>
 
-              <Greeting />
+              <div className="hidden md:inline-block">
+                <Greeting />
+              </div>
             </div>
           </div>
         </div>
