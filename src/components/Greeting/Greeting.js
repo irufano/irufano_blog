@@ -49,7 +49,7 @@ const Greeting = () => {
 
   console.log(greeting?.toLowerCase());
   return (
-    <div className="bg-white/10 dark:bg-black/30 backdrop-blur-md rounded-lg shadow-lg p-6 w-full">
+    <div className="bg-white/10 dark:bg-black/30 backdrop-blur-md rounded-lg shadow-lg p-6 max-w-full md:max-w-md w-full">
       <div>
         <div className="flex items-center justify-between">
           <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-200">

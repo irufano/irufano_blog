@@ -37,12 +37,12 @@ export default function Home({ posts }) {
 
         <div className=" relative flex items-center justify-center py-20">
           <div className="container mx-auto p-4">
-            <div className="md:flex items-center justify-center">
+            <div className="md:flex justify-center">
               <div className="inline-block md:hidden w-full">
                 <Greeting />
               </div>
 
-              <div className="mr-0 md:mr-4 mt-6 md:mt-0">
+              <div className="mr-0 md:mr-8 mt-6 md:mt-0">
                 <h1 className="text-2xl md:text-4xl font-bold text-text dark:text-text-dark">
                   Developer Portal
                 </h1>
@@ -53,7 +53,7 @@ export default function Home({ posts }) {
                 </p>
               </div>
 
-              <div className="hidden md:inline-block">
+              <div className="hidden md:inline-block max-w-full md:max-w-md w-full">
                 <Greeting />
               </div>
             </div>
