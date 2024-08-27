@@ -1,4 +1,4 @@
-import Layout from "@/components/Layout";
+import Layout from "@/components/Core/Layout";
 import { getPosts } from "@/utils/posts";
 import Link from "next/link";
 

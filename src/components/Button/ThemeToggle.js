@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { MoonIcon, SunIcon } from "@heroicons/react/24/outline";
+import { Sun, Moon } from "feather-icons-react";
 
 const ThemeToggle = () => {
   const [theme, setTheme] = useState("light");
@@ -33,13 +33,13 @@ const ThemeToggle = () => {
   return (
     <button
       onClick={toggleTheme}
-      className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-800 focus:outline-none"
+      className="flex items-center justify-center bg-gray-100 dark:bg-gray-800 p-2 rounded-full focus:outline-none"
       aria-label="Toggle Theme"
     >
       {theme === "dark" ? (
-        <SunIcon className="w-6 h-6 text-yellow-500" />
+        <Sun className="w-auto h-5 text-secondary" />
       ) : (
-        <MoonIcon className="w-6 h-6 text-gray-900" />
+        <Moon className="w-auto h-5 text-secondary" />
       )}
     </button>
   );

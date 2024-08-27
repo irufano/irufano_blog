@@ -1,8 +1,8 @@
-import Layout from "@/components/Layout";
-import SEO from "@/components/SEO";
+import SEO from "@/components/Core/SEO";
 import { getPosts } from "@/utils/posts";
 import Link from "next/link";
 import SEOInsight from "../../../insight-next-seo.config";
+import Layout from "@/components/Core/Layout";
 
 export async function getStaticProps() {
   const page = 1; // Start with the first page

@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { getAllPostsByTag, getAllTags } from "@/utils/posts";
 import Layout from "@/components/Layout";
 import SEOInsight from "../../../../insight-next-seo.config";
-import SEO from "@/components/SEO";
+import SEO from "@/components/Core/SEO";
 
 export async function getStaticPaths() {
   const tags = getAllTags();

@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 
 import "../styles/globals.css";
 import "highlight.js/styles/tomorrow-night-blue.min.css";
+import Head from "next/head";
 
 export default function MyApp({ Component, pageProps }) {
   const router = useRouter();
@@ -45,29 +46,35 @@ export default function MyApp({ Component, pageProps }) {
 
   return (
     <>
-      {process.env.NODE_ENV === "production" ? (
-        <>
-          <Script
-            strategy="afterInteractive"
-            src={`https://www.googletagmanager.com/gtag/js?id=${analyticsId}`}
-          />
-          <Script
-            id="google-analytics"
-            strategy="afterInteractive"
-            dangerouslySetInnerHTML={{
-              __html: `
+      <Head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+          rel="stylesheet"
+        />
+        {process.env.NODE_ENV === "production" ? (
+          <>
+            <Script
+              strategy="afterInteractive"
+              src={`https://www.googletagmanager.com/gtag/js?id=${analyticsId}`}
+            />
+            <Script
+              id="google-analytics"
+              strategy="afterInteractive"
+              dangerouslySetInnerHTML={{
+                __html: `
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
 
                 gtag('config', '${analyticsId}');
               `,
-            }}
-          />{" "}
-        </>
-      ) : (
-        <></>
-      )}
+              }}
+            />{" "}
+          </>
+        ) : (
+          <></>
+        )}
+      </Head>
       <DefaultSeo {...DefaultSEOConfig} />
       <Component {...pageProps} />
     </>

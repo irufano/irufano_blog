@@ -2,9 +2,9 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { getPosts } from "@/utils/posts";
-import Layout from "@/components/Layout";
 import SEOInsight from "../../../../insight-next-seo.config";
-import SEO from "@/components/SEO";
+import SEO from "@/components/Core/SEO";
+import Layout from "@/components/Core/Layout";
 
 export async function getStaticProps() {
   const posts = getPosts(1, Infinity).paginatedPosts;

@@ -2,7 +2,7 @@ import Layout from "@/components/Layout";
 import { getAllTags } from "@/utils/posts";
 import Link from "next/link";
 import SEOInsight from "../../../../insight-next-seo.config";
-import SEO from "@/components/SEO";
+import SEO from "@/components/Core/SEO";
 
 export async function getStaticProps() {
   const tags = getAllTags();

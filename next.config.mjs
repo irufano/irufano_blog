@@ -1,7 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: "export",
-  assetPrefix: process.env.NODE_ENV === "production" ? "https://irufano.github.io" : "",
+  assetPrefix:
+    process.env.NODE_ENV === "production"
+      ? "https://irufano.github.io"
+      : "http://localhost:3000",
   images: {
     unoptimized: true,
   },
@@ -12,6 +15,7 @@ const nextConfig = {
       test: /\.md$/,
       use: "raw-loader",
     });
+
     return config;
   },
 };

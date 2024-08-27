@@ -9,28 +9,28 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Open Sans", "sans-serif"],
+        sans: ["Ubuntu", "sans-serif"],
       },
       colors: {
         primary: {
-          light: "#379EB1",
-          DEFAULT: "#379EB1",
-          dark: "#41BED4",
+          light: "#46ECBA",
+          DEFAULT: "#46ECBA",
+          dark: "#46ECBA",
         },
         secondary: {
-          light: "#D9F2F6",
-          DEFAULT: "#D9F2F6",
-          dark: "#324548",
+          light: "#0CD79A",
+          DEFAULT: "#0CD79A",
+          dark: "#0CD79A",
         },
         accent: {
-          light: "#42BED4",
-          DEFAULT: "#42BED4",
-          dark: "#47CBE3",
+          light: "#2094F2",
+          DEFAULT: "#2094F2",
+          dark: "#2094F2",
         },
         surface: {
           light: "#FFFFFF",
           DEFAULT: "#FFFFFF",
-          dark: "#3E3E3E",
+          dark: "#1B1E1F",
         },
         surfaceSection: {
           light: "#D9F2F6",

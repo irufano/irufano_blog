@@ -1,8 +1,8 @@
-import Layout from "@/components/Layout";
 import { getAllPosts, getPostBySlug } from "../../../utils/posts";
 import { useEffect } from "react";
-import SEO from "@/components/SEO";
+import SEO from "@/components/Core/SEO";
 import SEOInsight from "../../../../insight-next-seo.config";
+import Layout from "@/components/Core/Layout";
 
 export async function getStaticPaths() {
   // Get all posts without pagination
