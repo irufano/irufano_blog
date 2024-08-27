@@ -11,6 +11,13 @@ module.exports = {
       fontFamily: {
         sans: ["Ubuntu", "sans-serif"],
       },
+      backdropBlur: {
+        xs: "2px",
+        sm: "4px",
+        md: "6px",
+        lg: "8px",
+        xl: "12px",
+      },
       colors: {
         primary: {
           light: "#46ECBA",

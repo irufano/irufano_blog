@@ -4,7 +4,7 @@ import Link from "next/link";
 import { getPosts } from "@/utils/posts";
 import SEOInsight from "../../../../insight-next-seo.config";
 import SEO from "@/components/Core/SEO";
-import Layout from "@/components/Core/Layout";
+import Layout, { LayoutType } from "@/components/Core/Layout";
 
 export async function getStaticProps() {
   const posts = getPosts(1, Infinity).paginatedPosts;
@@ -111,7 +111,7 @@ export default function SearchPage({ posts }) {
   }
 
   return (
-    <Layout>
+    <Layout type={LayoutType.INSIGHT}>
       <SEO
         title={SEOInsight.title}
         description={SEOInsight.description}

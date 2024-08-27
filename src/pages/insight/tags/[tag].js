@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { getAllPostsByTag, getAllTags } from "@/utils/posts";
 import SEOInsight from "../../../../insight-next-seo.config";
 import SEO from "@/components/Core/SEO";
-import Layout from "@/components/Core/Layout";
+import Layout, { LayoutType } from "@/components/Core/Layout";
 
 export async function getStaticPaths() {
   const tags = getAllTags();
@@ -61,8 +61,8 @@ export default function TagPage({ posts, tag }) {
   };
 
   return (
-    <Layout>
-       <SEO
+    <Layout type={LayoutType.INSIGHT}>
+      <SEO
         title={SEOInsight.title}
         description={SEOInsight.description}
         ogSiteName={SEOInsight.openGraph.site_name}

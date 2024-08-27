@@ -2,7 +2,7 @@ import { getAllTags } from "@/utils/posts";
 import Link from "next/link";
 import SEOInsight from "../../../../insight-next-seo.config";
 import SEO from "@/components/Core/SEO";
-import Layout from "@/components/Core/Layout";
+import Layout, { LayoutType } from "@/components/Core/Layout";
 
 export async function getStaticProps() {
   const tags = getAllTags();
@@ -16,7 +16,7 @@ export async function getStaticProps() {
 
 export default function TagsPage({ tags }) {
   return (
-    <Layout>
+    <Layout type={LayoutType.INSIGHT}>
       <SEO
         title={SEOInsight.title}
         description={SEOInsight.description}

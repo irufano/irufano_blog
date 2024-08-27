@@ -2,7 +2,7 @@ import SEO from "@/components/Core/SEO";
 import { getPosts } from "@/utils/posts";
 import Link from "next/link";
 import SEOInsight from "../../../insight-next-seo.config";
-import Layout from "@/components/Core/Layout";
+import Layout, { LayoutType } from "@/components/Core/Layout";
 
 export async function getStaticProps() {
   const page = 1; // Start with the first page
@@ -20,7 +20,7 @@ export async function getStaticProps() {
 
 export default function Insights({ posts, currentPage, totalPages }) {
   return (
-    <Layout>
+    <Layout type={LayoutType.INSIGHT}>
       <SEO
         title={SEOInsight.title}
         description={SEOInsight.description}
