@@ -14,11 +14,38 @@ const getGreeting = () => {
 };
 
 const quotes = [
-  "The best way to get started is to quit talking and begin doing.",
-  "Success is not final, failure is not fatal, It is the courage to continue that counts.",
-  "Don't watch the clock, do what it does. Keep going.",
-  "The future belongs to those who believe in the beauty of their dreams.",
-  "The only limit to our realization of tomorrow is our doubts of today.",
+  {
+    quote: "Knowledge enlivens the soul.",
+    author: "Al-Kindi",
+  },
+  {
+    quote: "The cure for ignorance is inquiry.",
+    author: "Ibn Khaldun",
+  },
+  {
+    quote: "Seek knowledge, gain wisdom.",
+    author: "Muhammad SAW",
+  },
+  {
+    quote: "Knowledge is power.",
+    author: "Imam Ali",
+  },
+  {
+    quote: "Patience leads to victory.",
+    author: "Al-Ghazali",
+  },
+  {
+    quote: "Knowledge enlivens the soul.",
+    author: "Ibn Sina",
+  },
+  {
+    quote: "Knowledge is true wealth.",
+    author: "Ibn Khaldun",
+  },
+  {
+    quote: "Learning enhances human dignity.",
+    author: "Al-Ghazali",
+  },
 ];
 
 const Greeting = () => {
@@ -48,30 +75,32 @@ const Greeting = () => {
   }, [currentQuoteIndex]);
 
   return (
-    <div className="bg-white/10 dark:bg-black/30 backdrop-blur-md rounded-lg shadow-lg p-6 max-w-full md:max-w-md w-full">
+    <div className="bg-white/30 dark:bg-black/30 backdrop-blur-md rounded-lg shadow-lg p-6 max-w-full md:max-w-md w-full">
       <div>
         <div className="flex items-center justify-between">
           <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-200">
             {greeting}
           </h2>
           {greeting?.toLowerCase() === "good morning" ? (
-            <FeatherIcon icon="sunrise" size="30" className="text-yellow-500" />
+            <FeatherIcon icon="cloud" size="30" className="text-yellow-500" />
           ) : greeting?.toLowerCase() === "good afternoon" ? (
             <FeatherIcon icon="sun" size="30" className="text-yellow-500" />
           ) : (
             <FeatherIcon icon="moon" size="30" className="text-yellow-500" />
           )}
         </div>
-        <p
-          key={currentQuoteIndex}
-          className="mt-3 text-gray-600 dark:text-gray-300"
-        >
-          {quotes[currentQuoteIndex]}
-        </p>
-        <div className="w-full flex items-center justify-center">
+        <div key={currentQuoteIndex} className="mt-3">
+          <p className=" text-gray-600 dark:text-gray-300">
+            {quotes[currentQuoteIndex].quote}
+          </p>
+          <span className="mt-2 text-xs text-gray-500 dark:text-gray-200 ">
+            {quotes[currentQuoteIndex].author}
+          </span>
+        </div>
+        <div className="w-full  flex-1 flex items-center justify-center">
           <div className="w-1/4 h-2 mt-4 bg-gray-300 dark:bg-gray-600 rounded">
             <div
-              className="h-2 bg-secondary rounded"
+              className="h-2 bg-primary rounded"
               style={{ width: `${progress}%`, transition: "width 0.1s linear" }}
             />
           </div>

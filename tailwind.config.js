@@ -20,14 +20,14 @@ module.exports = {
       },
       colors: {
         primary: {
-          light: "#46ECBA",
-          DEFAULT: "#46ECBA",
-          dark: "#46ECBA",
-        },
-        secondary: {
           light: "#0CD79A",
           DEFAULT: "#0CD79A",
           dark: "#0CD79A",
+        },
+        secondary: {
+          light: "#46ECBA",
+          DEFAULT: "#46ECBA",
+          dark: "#46ECBA",
         },
         accent: {
           light: "#2094F2",
@@ -37,7 +37,7 @@ module.exports = {
         surface: {
           light: "#FFFFFF",
           DEFAULT: "#FFFFFF",
-          dark: "#1B1E1F",
+          dark: "#212426",
         },
         surfaceSection: {
           light: "#D9F2F6",

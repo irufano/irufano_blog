@@ -85,17 +85,17 @@ export default function InsightNavbar() {
         </div>
         <div className="hidden md:flex space-x-4 items-center text-md font-medium">
           <Link href="/">
-            <h3 className="text-text mr-2 dark:text-text-dark hover:text-secondary dark:hover:text-secondary-dark">
+            <h3 className="text-text mr-2 dark:text-text-dark hover:text-primary dark:hover:text-primary-dark">
               Home
             </h3>
           </Link>
           <Link href="/tools">
-            <h3 className="text-text mr-2 dark:text-text-dark hover:text-secondary dark:hover:text-secondary-dark">
+            <h3 className="text-text mr-2 dark:text-text-dark hover:text-primary dark:hover:text-primary-dark">
               Tools
             </h3>
           </Link>
           <Link href="/insight">
-            <h3 className="text-text mr-2 dark:text-text-dark hover:text-secondary dark:hover:text-secondary-dark">
+            <h3 className="text-text mr-2 dark:text-text-dark hover:text-primary dark:hover:text-primary-dark">
               Insight
             </h3>
           </Link>
@@ -112,17 +112,17 @@ export default function InsightNavbar() {
             <SearchButton hasText={true} />
           </div>
           <Link href="/">
-            <h3 className="block py-2 text-text dark:text-text-dark hover:text-secondary dark:hover:text-secondary-dark">
+            <h3 className="block py-2 text-text dark:text-text-dark hover:text-primary dark:hover:text-primary-dark">
               Home
             </h3>
           </Link>
           <Link href="/tools">
-            <h3 className="block py-2 text-text dark:text-text-dark hover:text-secondary dark:hover:text-secondary-dark">
+            <h3 className="block py-2 text-text dark:text-text-dark hover:text-primary dark:hover:text-primary-dark">
               Tools
             </h3>
           </Link>
           <Link href="/insight">
-            <h3 className="block py-2 text-text dark:text-text-dark hover:text-secondary dark:hover:text-secondary-dark">
+            <h3 className="block py-2 text-text dark:text-text-dark hover:text-primary dark:hover:text-primary-dark">
               Insight
             </h3>
           </Link>
