@@ -1,6 +1,7 @@
 import { ubuntu } from "@/utils/font";
 import DevNavbar from "./Navbar/DevNavbar";
 import InsightNavbar from "./Navbar/InsightNavbar";
+import Footer from "./Footer/Footer";
 
 export const LayoutType = Object.freeze({
   DEV: "dev",
@@ -15,9 +16,7 @@ export default function Layout({ children, type = LayoutType.DEV }) {
         <div className={`${ubuntu} font-ubuntu min-h-screen`}>
           <DevNavbar />
           <main className="font-ubuntu">{children}</main>
-          <footer className="p-4 text-center">
-            <p>© 2024 My Blog</p>
-          </footer>
+          <Footer />
         </div>
       );
 
@@ -26,9 +25,7 @@ export default function Layout({ children, type = LayoutType.DEV }) {
         <div className={`${ubuntu} font-ubuntu min-h-screen`}>
           <InsightNavbar />
           <main>{children}</main>
-          <footer className="p-4 text-center">
-            <p>© 2024 My Blog</p>
-          </footer>
+          <Footer />
         </div>
       );
 
@@ -37,9 +34,7 @@ export default function Layout({ children, type = LayoutType.DEV }) {
         <div className={`${ubuntu} font-ubuntu min-h-screen`}>
           <InsightNavbar />
           <main className="font-ubuntu">{children}</main>
-          <footer className="p-4 text-center">
-            <p>© 2024 My Blog</p>
-          </footer>
+          <Footer />
         </div>
       );
   }

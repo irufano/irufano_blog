@@ -4,9 +4,8 @@ import HomeInsightsCard from "@/components/Home/HomeInsightCard";
 import ToolCard from "@/components/Home/ToolCard";
 import { getPosts } from "@/utils/posts";
 import Image from "next/image";
-import Bg from "../assets/irufano-square-logo.svg";
 import FeatherIcon from "feather-icons-react";
-import Link from "next/link";
+import Logo from "../assets/irufano-square-logo.svg";
 
 export async function getStaticProps({ params }) {
   const page = 1; // Start with the first page
@@ -25,27 +24,27 @@ export default function Home({ posts }) {
     <Layout>
       <div className="relative w-full h-auto bg-emerald-50 dark:bg-background-dark">
         {/* First Image */}
-        <div className="absolute top-[10%] -left-[15%] md:-left-[5%]">
+        <div className="absolute top-[5%] md:top-[10%] -left-[15%] md:-left-[5%]">
           <div className="relative">
-            <Image src={Bg} className="w-40 md:w-72 2xl:w-[20rem]  h-auto" />
+            <Image src={Logo} className="w-40 md:w-72 2xl:w-[20rem]  h-auto" />
           </div>
         </div>
 
         {/* Second Image */}
         <div className="absolute top-[15%] right-[5%]">
           <div className="relative" style={{ filter: "blur(100px)" }}>
-            <Image src={Bg} className="w-30 md:w-72 h-auto" />
+            <Image src={Logo} className="w-30 md:w-72 h-auto" />
           </div>
         </div>
 
         {/* Third Image */}
         <div className="absolute top-[30%] right-[40%]">
           <div className="relative" style={{ filter: "blur(100px)" }}>
-            <Image src={Bg} className="w-30 md:w-80 h-auto" />
+            <Image src={Logo} className="w-30 md:w-80 h-auto" />
           </div>
         </div>
 
-        <div className=" relative flex items-center justify-center py-24">
+        <div className=" relative flex items-center justify-center py-16 md:py-24">
           <div className="container mx-auto p-4">
             <div className="md:flex justify-center">
               <div className="inline-block md:hidden w-full">
@@ -118,24 +117,21 @@ export default function Home({ posts }) {
                   <HomeInsightsCard posts={posts} />
                 </div>
 
-                <div className="bg-blue-200/40 dark:bg-blue-700/30 backdrop-blur-md rounded-lg shadow-lg p-6 w-full mr-0 md:mr-6 mt-4 md:mt-0 flex items-center justify-between">
-                  <Link
-                    href={`/insight`}
-                    className="w-full flex items-center justify-between"
-                  >
-                    <div className="w-full text-center ">
-                      <h2 className="text-2xl font-semibold text-gray-800 dark:text-gray-200">
-                        See more insights
-                      </h2>
-
-                      <FeatherIcon
-                        icon="arrow-right"
-                        size={30}
-                        strokeWidth={4}
-                        className="w-full text-text dark:text-text-dark text-start"
-                      />
+                <div
+                  className="bg-blue-200/40 dark:bg-blue-700/30 backdrop-blur-md rounded-lg shadow-lg p-6 w-full mr-0 md:mr-6 mt-4 md:mt-0 flex items-center bg-cover bg-center"
+                  style={{ backgroundImage: `url('/promo-bg.svg')` }}
+                >
+                  <div className="w-full text-center justify-center">
+                    <h2 className="text-4xl font-semibold text-white">
+                      Free space
+                    </h2>
+                    <h2 className="text-2xl font-semibold text-white">
+                      for sponsor
+                    </h2>
+                    <div className="justify-center mx-auto w-ful w-6 h-auto mt-4">
+                      <Image src={Logo} className=" w-ful w-6 h-auto" />
                     </div>
-                  </Link>
+                  </div>
                 </div>
               </div>
             </div>

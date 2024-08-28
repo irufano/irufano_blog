@@ -1,14 +1,14 @@
 export default {
-  title: "Irufano Insight",
-  description: "Insights, ideas, stories and tutorials from irufano",
+  title: "Irufano Dev - Developer Portal",
+  description: "A tech docs, insights about the software development and also provides several tools for anyone who need it",
   canonical: "https://irufano.github.io",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://irufano.github.io",
-    site_name: "irufano insight",
-    title: "Irufano Insight",
-    description: "Insights, ideas, stories and tutorials from irufano",
+    site_name: "irufano Dev",
+    title: "Irufano Dev - Developer Portal",
+    description: "A tech docs, insights about the software development and also provides several tools for anyone who need it",
     images: [
       {
         url: "hhttps://irufano.github.io/og-irufano-01.png",
