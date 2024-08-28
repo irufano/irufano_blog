@@ -1,3 +1,4 @@
+import { ubuntu } from "@/utils/font";
 import DevNavbar from "./Navbar/DevNavbar";
 import InsightNavbar from "./Navbar/InsightNavbar";
 
@@ -11,9 +12,9 @@ export default function Layout({ children, type = LayoutType.DEV }) {
   switch (type) {
     case LayoutType.DEV:
       return (
-        <div className="min-h-screen">
+        <div className={`${ubuntu} font-ubuntu min-h-screen`}>
           <DevNavbar />
-          <main>{children}</main>
+          <main className="font-ubuntu">{children}</main>
           <footer className="p-4 text-center">
             <p>© 2024 My Blog</p>
           </footer>
@@ -22,7 +23,7 @@ export default function Layout({ children, type = LayoutType.DEV }) {
 
     case LayoutType.INSIGHT:
       return (
-        <div className="min-h-screen">
+        <div className={`${ubuntu} font-ubuntu min-h-screen`}>
           <InsightNavbar />
           <main>{children}</main>
           <footer className="p-4 text-center">
@@ -33,9 +34,9 @@ export default function Layout({ children, type = LayoutType.DEV }) {
 
     default:
       return (
-        <div className="min-h-screen">
+        <div className={`${ubuntu} font-ubuntu min-h-screen`}>
           <InsightNavbar />
-          <main>{children}</main>
+          <main className="font-ubuntu">{children}</main>
           <footer className="p-4 text-center">
             <p>© 2024 My Blog</p>
           </footer>

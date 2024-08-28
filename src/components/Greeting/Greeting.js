@@ -47,7 +47,6 @@ const Greeting = () => {
     return () => clearInterval(progressInterval);
   }, [currentQuoteIndex]);
 
-  console.log(greeting?.toLowerCase());
   return (
     <div className="bg-white/10 dark:bg-black/30 backdrop-blur-md rounded-lg shadow-lg p-6 max-w-full md:max-w-md w-full">
       <div>

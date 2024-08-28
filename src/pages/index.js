@@ -29,13 +29,13 @@ export default function Home({ posts }) {
         </div>
 
         {/* Second Image */}
-        <div className="absolute top-1/4 right-8">
+        <div className="absolute top-1/4 right-1/4">
           <div className="relative" style={{ filter: "blur(100px)" }}>
             <Image src={Bg} className="w-72" />
           </div>
         </div>
 
-        <div className=" relative flex items-center justify-center py-20">
+        <div className=" relative flex items-center justify-center py-24">
           <div className="container mx-auto p-4">
             <div className="md:flex justify-center">
               <div className="inline-block md:hidden w-full">
@@ -60,7 +60,7 @@ export default function Home({ posts }) {
           </div>
         </div>
       </div>
-      <div class="relative w-full  h-screen py-48 bg-purple-400">
+      <div className="relative w-full  h-screen py-48 bg-purple-400">
         <div
           className="absolute inset-0 bg-cover bg-center backdrop-blur-sm"
           style={{ filter: "blur(60px)" }} // additional blur if needed

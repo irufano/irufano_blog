@@ -9,7 +9,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Ubuntu", "sans-serif"],
+        ubuntu: ["var(--font-ubuntu)"],
       },
       backdropBlur: {
         xs: "2px",
