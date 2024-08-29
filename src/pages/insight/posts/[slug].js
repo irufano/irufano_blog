@@ -7,6 +7,7 @@ import FeatherIcon from "feather-icons-react";
 import { throttle } from "lodash";
 import Link from "next/link";
 import ExpansionTile from "@/components/Button/ExpansionTile";
+import Comment from "@/components/Posts/Comment";
 
 export async function getStaticPaths() {
   // Get all posts without pagination
@@ -182,18 +183,27 @@ export default function PostPage({ post }) {
             />
 
             {/* Tags */}
-            <div className="mt-8">
-              <h4 className="text-lg font-semibold">Tags:</h4>
-              <ul className="list-none flex space-x-3 mt-2">
+            <div className="my-8">
+              <h4 className="text-lg font-semibold text-text dark:text-text-dark">
+                Tags:
+              </h4>
+              <div className="list-none flex flex-wrap gap-2 mt-2">
                 {tags.map((tag) => (
-                  <li
-                    key={tag}
-                    className="text-sm bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 px-2 py-1 rounded"
-                  >
-                    {tag}
-                  </li>
+                  <Link href={`/insight/tags/${tag}`} className="no-underline">
+                    <div
+                      key={tag}
+                      className="text-sm bg-accent dark:bg-accent-dark text-white  px-2 py-1 rounded-md hover:bg-accent/70 dark:hover:bg-accent-dark/70"
+                    >
+                      {tag}
+                    </div>
+                  </Link>
                 ))}
-              </ul>
+              </div>
+            </div>
+
+            {/* Comment */}
+            <div className="my-8">
+              <Comment />
             </div>
           </article>
         </div>

@@ -31,16 +31,16 @@ export default function Home({ posts }) {
         </div>
 
         {/* Second Image */}
-        <div className="absolute top-[10%] right-[5%]">
+        <div className="absolute top-[15%] right-[5%]">
           <div className="relative" style={{ filter: "blur(100px)" }}>
-            <Image src={Logo} className="w-30 md:w-72 h-auto" />
+            <Image src={Logo} className="w-20 md:w-60 h-auto" />
           </div>
         </div>
 
         {/* Third Image */}
-        <div className="absolute top-[30%] right-[40%]">
+        <div className="absolute top-[20%] right-[40%]">
           <div className="relative" style={{ filter: "blur(100px)" }}>
-            <Image src={Logo} className="w-30 md:w-80 h-auto" />
+            <Image src={Logo} className="w-25 md:w-80 h-auto" />
           </div>
         </div>
 
