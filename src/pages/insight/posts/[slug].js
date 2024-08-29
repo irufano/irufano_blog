@@ -5,6 +5,7 @@ import SEOInsight from "../../../../insight-next-seo.config";
 import Layout, { LayoutType } from "@/components/Core/Layout";
 import FeatherIcon from "feather-icons-react";
 import { throttle } from "lodash";
+import Link from "next/link";
 
 export async function getStaticPaths() {
   // Get all posts without pagination
@@ -107,7 +108,7 @@ export default function PostPage({ post }) {
         url={SEOInsight.openGraph.url}
         images={SEOInsight.openGraph.images}
       />
-      <div className="container mx-auto  pt-24 flex flex-col lg:flex-row">
+      <div className="container mx-auto pt-20 md:pt-24 flex flex-col lg:flex-row">
         {/* Article */}
         <div className="mx-auto p-4">
           <article className="prose prose-lg dark:prose-dark mx-auto">
@@ -135,7 +136,7 @@ export default function PostPage({ post }) {
                 </span>
                 {readingTime}
               </p>
-              <p className="flex items-center mt-2 text-xs md:text-sm text-gray-700 dark:text-gray-300">
+              <p className="flex items-center mt-2 text-xs md:text-sm">
                 <span>
                   <FeatherIcon
                     icon="user"
@@ -143,7 +144,12 @@ export default function PostPage({ post }) {
                     className="mr-2 text-primary"
                   />
                 </span>
-                {author}
+                <Link
+                  href={"https://github.com/irufano"}
+                  className="text-gray-700 dark:text-gray-300 no-underline font-normal hover:text-primary dark:hover:text-primary-dark"
+                >
+                  {author}
+                </Link>
               </p>
             </div>
             {/* Display Section Links */}
