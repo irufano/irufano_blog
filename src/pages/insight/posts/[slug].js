@@ -6,6 +6,7 @@ import Layout, { LayoutType } from "@/components/Core/Layout";
 import FeatherIcon from "feather-icons-react";
 import { throttle } from "lodash";
 import Link from "next/link";
+import ExpansionTile from "@/components/Button/ExpansionTile";
 
 export async function getStaticPaths() {
   // Get all posts without pagination
@@ -153,6 +154,26 @@ export default function PostPage({ post }) {
               </p>
             </div>
             {/* Display Section Links */}
+            {sections.length > 0 && (
+              <div className="block lg:hidden mb-8 lg:mb-0">
+                <ExpansionTile title="Content">
+                  <div className="list-none">
+                    {post.sections.map((heading) => (
+                      <div key={heading?.id} className="mb-1">
+                        <a
+                          href={`#${heading?.id}`}
+                          className={`text-sm text-gray-500 dark:text-gray-400 hover:text-secondary dark:hover:text-secondary no-underline ${
+                            heading?.level === "3" ? "ml-4" : ""
+                          }`}
+                        >
+                          {heading?.text}
+                        </a>
+                      </div>
+                    ))}
+                  </div>{" "}
+                </ExpansionTile>
+              </div>
+            )}
 
             {/* Post Content */}
             <div
