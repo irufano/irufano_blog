@@ -16,16 +16,28 @@ const HomeInsightsCard = ({
                   <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
                     {post?.meta?.title ?? "-"}
                   </h3>
-                  <p className="flex items-center mt-2 text-sm text-gray-700 dark:text-gray-300">
-                    <span>
-                      <FeatherIcon
-                        icon="calendar"
-                        size={14}
-                        className="mr-2 text-primary"
-                      />
-                    </span>
-                    {post?.meta?.date ?? "-"}
-                  </p>
+                  <div className="flex space-x-4">
+                    <p className="flex items-center mt-2 text-xs md:text-sm text-gray-700 dark:text-gray-300">
+                      <span>
+                        <FeatherIcon
+                          icon="calendar"
+                          size={14}
+                          className="mr-2 text-primary"
+                        />
+                      </span>
+                      {post?.meta?.date ?? "-"}
+                    </p>
+                    <p className="flex items-center mt-2 text-xs md:text-sm text-gray-700 dark:text-gray-300">
+                      <span>
+                        <FeatherIcon
+                          icon="clock"
+                          size={14}
+                          className="mr-2 text-primary"
+                        />
+                      </span>
+                      {post?.readingTime ?? "-"}
+                    </p>
+                  </div>
                   <div className="mt-2">
                     <ul className="list-none flex space-x-3 mt-2">
                       {post?.meta?.tags.map((tag) => (

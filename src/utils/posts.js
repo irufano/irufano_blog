@@ -32,6 +32,8 @@ export function getPostBySlug(slug) {
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
 
+  const readingTimeEst = calculateReadingTime(content);
+
   const processedContent = remark()
     .use(rSlug) // Adds slugs to headings
     .use(toc) // Generates a table of contents
@@ -97,6 +99,7 @@ export function getPostBySlug(slug) {
     content: contentHtml,
     sections: headings,
     raw: content,
+    readingTime: readingTimeEst,
   };
 }
 
@@ -108,6 +111,7 @@ export function getAllPosts() {
       slug: post.slug,
       meta: post.meta,
       rawContent: post.raw,
+      readingTime: post.readingTime,
     };
   });
 }
@@ -157,6 +161,7 @@ export function getAllPostsByTag(tag) {
         slug: post.slug,
         meta: post.meta,
         rawContent: post.raw,
+        readingTime: post.readingTime,
       };
     })
     .filter((post) => post.meta?.tags && post.meta?.tags.includes(tag))
@@ -164,3 +169,10 @@ export function getAllPostsByTag(tag) {
 
   return posts;
 }
+
+const calculateReadingTime = (text) => {
+  const wordsPerMinute = 200; // Average reading speed
+  const words = text.split(/\s+/).length; // Split by spaces
+  const readingTime = Math.ceil(words / wordsPerMinute); // Calculate minutes
+  return `${readingTime} min read`;
+};

@@ -24,14 +24,14 @@ export default function Home({ posts }) {
     <Layout>
       <div className="relative w-full h-auto bg-emerald-50 dark:bg-background-dark">
         {/* First Image */}
-        <div className="absolute top-[5%] md:top-[10%] -left-[15%] md:-left-[5%]">
+        <div className="absolute top-[5%] md:top-[6%] -left-[15%] md:-left-[5%]">
           <div className="relative">
             <Image src={Logo} className="w-40 md:w-72 2xl:w-[20rem]  h-auto" />
           </div>
         </div>
 
         {/* Second Image */}
-        <div className="absolute top-[15%] right-[5%]">
+        <div className="absolute top-[10%] right-[5%]">
           <div className="relative" style={{ filter: "blur(100px)" }}>
             <Image src={Logo} className="w-30 md:w-72 h-auto" />
           </div>
