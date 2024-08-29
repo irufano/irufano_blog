@@ -7,7 +7,7 @@ const Footer = () => {
   const d = new Date();
   let year = d.getFullYear();
   return (
-    <div className="py-16 text-center bg-surface dark:bg-surface-dark w-full">
+    <footer className="py-16 text-center bg-surface dark:bg-surface-dark w-full">
       <div className="container mx-auto p-4">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between justify-center items-center space-y-1">
           <div>
@@ -33,7 +33,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </div>
+    </footer>
   );
 };
 
