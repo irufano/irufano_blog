@@ -26,21 +26,21 @@ export default function Home({ posts }) {
         {/* First Image */}
         <div className="absolute top-[5%] md:top-[6%] -left-[15%] md:-left-[5%]">
           <div className="relative">
-            <Image src={Logo} className="w-40 md:w-72 2xl:w-[20rem]  h-auto" />
+            <Image src={Logo} alt="-" className="w-40 md:w-72 2xl:w-[20rem] h-auto" />
           </div>
         </div>
 
         {/* Second Image */}
         <div className="absolute top-[15%] right-[5%]">
           <div className="relative" style={{ filter: "blur(100px)" }}>
-            <Image src={Logo} className="w-20 md:w-60 h-auto" />
+            <Image src={Logo} alt="-" className="w-20 md:w-60 h-auto" />
           </div>
         </div>
 
         {/* Third Image */}
         <div className="absolute top-[20%] right-[40%]">
           <div className="relative" style={{ filter: "blur(100px)" }}>
-            <Image src={Logo} className="w-25 md:w-80 h-auto" />
+            <Image src={Logo} alt="-" className="w-25 md:w-80 h-auto" />
           </div>
         </div>
 
@@ -129,7 +129,7 @@ export default function Home({ posts }) {
                       for sponsor
                     </h2>
                     <div className="justify-center mx-auto w-ful w-6 h-auto mt-4">
-                      <Image src={Logo} className=" w-ful w-6 h-auto" />
+                      <Image src={Logo} alt="-" className=" w-ful w-6 h-auto" />
                     </div>
                   </div>
                 </div>

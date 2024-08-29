@@ -48,7 +48,7 @@ export default function PostPage({ post }) {
 
     const handleScroll = throttle(() => {
       const offset = calculateOffset(); // Get the dynamic offset value
-      const sectionOffsets = sections.map((section) => {
+      const sectionOffsets = post.sections.map((section) => {
         const element = document.getElementById(section.id);
         if (element) {
           return { id: section.id, offsetTop: element.offsetTop };
@@ -80,7 +80,7 @@ export default function PostPage({ post }) {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [sections]);
+  }, [post.sections]);
 
   useEffect(() => {
     // handle copy code
@@ -189,7 +189,7 @@ export default function PostPage({ post }) {
               </h4>
               <div className="list-none flex flex-wrap gap-2 mt-2">
                 {tags.map((tag) => (
-                  <Link href={`/insight/tags/${tag}`} className="no-underline">
+                  <Link key={tag} href={`/insight/tags/${tag}`} className="no-underline">
                     <div
                       key={tag}
                       className="text-sm bg-accent dark:bg-accent-dark text-white  px-2 py-1 rounded-md hover:bg-accent/70 dark:hover:bg-accent-dark/70"

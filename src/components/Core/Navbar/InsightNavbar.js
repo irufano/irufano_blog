@@ -9,20 +9,20 @@ export default function InsightNavbar() {
   const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
-  const controlNavbar = () => {
-    if (typeof window !== "undefined") {
-      if (window.scrollY > lastScrollY) {
-        // Scrolling down
-        setShowNavbar(false);
-      } else {
-        // Scrolling up
-        setShowNavbar(true);
-      }
-      setLastScrollY(window.scrollY);
-    }
-  };
-
   useEffect(() => {
+    const controlNavbar = () => {
+      if (typeof window !== "undefined") {
+        if (window.scrollY > lastScrollY) {
+          // Scrolling down
+          setShowNavbar(false);
+        } else {
+          // Scrolling up
+          setShowNavbar(true);
+        }
+        setLastScrollY(window.scrollY);
+      }
+    };
+
     if (typeof window !== "undefined") {
       window.addEventListener("scroll", controlNavbar);
 
