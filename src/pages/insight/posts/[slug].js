@@ -109,7 +109,7 @@ export default function PostPage({ post }) {
         url={SEOInsight.openGraph.url}
         images={SEOInsight.openGraph.images}
       />
-      <div className="container mx-auto pt-20 md:pt-24 flex flex-col lg:flex-row">
+      <div className="container mx-auto pt-20 md:pt-24 lg:flex lg:flex-row">
         {/* Article */}
         <div className="mx-auto p-4">
           <article className="prose prose-lg dark:prose-dark mx-auto">

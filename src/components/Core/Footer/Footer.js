@@ -1,16 +1,15 @@
-import Image from "next/image";
-import Logo from "../../../assets/irufano-square-logo.svg";
 import IrufanoLogo from "@/components/Logo/IrufanoLogo";
-import FeatherIcon from "feather-icons-react";
+import Image from "next/image";
 import Link from "next/link";
+import Logo from "../../../assets/irufano-square-logo.svg";
 
 const Footer = () => {
   const d = new Date();
   let year = d.getFullYear();
   return (
-    <footer className="py-16 text-center bg-surface dark:bg-surface-dark">
+    <div className="py-16 text-center bg-surface dark:bg-surface-dark w-full">
       <div className="container mx-auto p-4">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between justify-center  items-center  space-y-1">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between justify-center items-center space-y-1">
           <div>
             <Link href={"https://irufano.com"}>
               <IrufanoLogo />
@@ -34,7 +33,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
+    </div>
   );
 };
 

@@ -24,7 +24,7 @@ export default function Layout({ children, type = LayoutType.DEV }) {
       return (
         <div className={`${ubuntu} font-ubuntu min-h-screen`}>
           <InsightNavbar />
-          <main>{children}</main>
+          <main className="font-ubuntu">{children}</main>
           <Footer />
         </div>
       );
@@ -32,7 +32,7 @@ export default function Layout({ children, type = LayoutType.DEV }) {
     default:
       return (
         <div className={`${ubuntu} font-ubuntu min-h-screen`}>
-          <InsightNavbar />
+          <DevNavbar />
           <main className="font-ubuntu">{children}</main>
           <Footer />
         </div>
