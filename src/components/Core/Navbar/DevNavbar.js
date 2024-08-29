@@ -108,7 +108,7 @@ export default function DevNavbar({ solid = false }) {
         </div>
       </div>
       {isOpen && (
-        <div className="md:hidden mt-2 space-y-4 justify-center items-start text-center text-md font-medium">
+        <div className="md:hidden my-2 space-y-4 justify-center items-start text-center text-md font-medium">
           <Link href="/">
             <h3 className="block py-2 text-text dark:text-text-dark hover:text-primary dark:hover:text-primary-dark">
               Home

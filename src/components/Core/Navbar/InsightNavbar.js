@@ -107,7 +107,7 @@ export default function InsightNavbar() {
         </div>
       </div>
       {isOpen && (
-        <div className="md:hidden mt-2 space-y-4 justify-center items-start text-center text-md font-medium">
+        <div className="md:hidden my-2 space-y-4 justify-center items-start text-center text-md font-medium">
           <div className="flex w-full justify-center items-center my-3">
             <SearchButton hasText={true} />
           </div>
