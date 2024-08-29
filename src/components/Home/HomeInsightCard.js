@@ -66,17 +66,19 @@ const HomeInsightsCard = ({
           </li>
         ))}
       </ul>
-      <div className="bg-teal-100 dark:bg-teal-900 hover:bg-primary/50 hover:dark:bg-teal-950 rounded-b-md p-6 flex items-center justify-between">
-        <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
-          See more insights
-        </h3>
-        <FeatherIcon
-          icon="arrow-right"
-          size={30}
-          strokeWidth={4}
-          className="text-text dark:text-text-dark text-start"
-        />
-      </div>
+      <Link href={"/insight"}>
+        <div className="bg-teal-100 dark:bg-teal-900 hover:bg-primary/50 hover:dark:bg-teal-950 rounded-b-md p-6 flex items-center justify-between">
+          <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+            See more insights
+          </h3>
+          <FeatherIcon
+            icon="arrow-right"
+            size={30}
+            strokeWidth={4}
+            className="text-text dark:text-text-dark text-start"
+          />
+        </div>
+      </Link>
     </div>
   );
 };
