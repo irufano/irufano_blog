@@ -6,11 +6,11 @@ const ToolCard = ({
   icon = "tool",
   onClicked = () => {},
   bg = "bg-surface dark:bg-surface-dark",
-  hover = "hover:bg-gray-50 hover:dark:bg-neutral-900",
+  hover = "hover:bg-gray-50 hover:dark:bg-gray-800",
 }) => {
   return (
     <div
-      className={`cursor-pointer rounded-lg shadow-md p-6 hover:bg-gray-50 hover:dark:bg-neutral-900 ${bg} ${hover}`}
+      className={`cursor-pointer rounded-lg shadow-md p-6 ${bg} ${hover}`}
       onClick={onClicked}
     >
       <div className="inline-block bg-primary rounded-lg shadow-md p-2 ">

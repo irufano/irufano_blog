@@ -11,7 +11,7 @@ const HomeInsightsCard = ({
         {posts.map((post) => (
           <li key={post.slug}>
             <Link href={`/insight/posts/${post.slug}`}>
-              <div className="hover:bg-gray-50 hover:dark:bg-neutral-900 rounded-md p-6 flex items-center justify-between">
+              <div className="hover:bg-gray-50 hover:dark:bg-gray-800 rounded-md p-6 flex items-center justify-between">
                 <div>
                   <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
                     {post?.meta?.title ?? "-"}
