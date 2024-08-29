@@ -1,8 +1,10 @@
 import { getAllPosts, getPostBySlug } from "../../../utils/posts";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import SEO from "@/components/Core/SEO";
 import SEOInsight from "../../../../insight-next-seo.config";
 import Layout, { LayoutType } from "@/components/Core/Layout";
+import FeatherIcon from "feather-icons-react";
+import { throttle } from "lodash";
 
 export async function getStaticPaths() {
   // Get all posts without pagination
@@ -29,6 +31,53 @@ export default function PostPage({ post }) {
   const sections = post.sections ?? [];
   const content = post.content;
   const tags = post.meta?.tags ?? [];
+  const readingTime = post.readingTime;
+  const author = post.meta?.author;
+
+  const [activeSection, setActiveSection] = useState(null);
+
+  useEffect(() => {
+    // Function to calculate the dynamic offset based on the header height
+    const calculateOffset = () => {
+      const header = document.querySelector("header"); // Assuming your header has a <header> tag
+      return header ? header.offsetHeight : 0; // Fallback to 0 if no header found
+    };
+
+    const handleScroll = throttle(() => {
+      const offset = calculateOffset(); // Get the dynamic offset value
+      const sectionOffsets = sections.map((section) => {
+        const element = document.getElementById(section.id);
+        if (element) {
+          return { id: section.id, offsetTop: element.offsetTop };
+        }
+        return { id: section.id, offsetTop: 0 };
+      });
+
+      const deviceHeight = window.innerHeight;
+      const currentScrollPosition =
+        window.scrollY + offset + deviceHeight * 0.75;
+
+      const currentSection = sectionOffsets.find((section, index) => {
+        const nextSection = sectionOffsets[index + 1];
+        if (nextSection) {
+          return (
+            currentScrollPosition >= section.offsetTop &&
+            currentScrollPosition < nextSection.offsetTop
+          );
+        }
+        return currentScrollPosition >= section.offsetTop;
+      });
+
+      if (currentSection) {
+        setActiveSection(currentSection.id);
+      }
+    }, 100);
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [sections]);
 
   useEffect(() => {
     // handle copy code
@@ -58,52 +107,103 @@ export default function PostPage({ post }) {
         url={SEOInsight.openGraph.url}
         images={SEOInsight.openGraph.images}
       />
-      <article className="prose prose-lg dark:prose-dark mx-auto p-4">
-        <h1 className="text-4xl font-bold mb-4 text-blue-700">{title}</h1>
-        <p className="text-gray-500 mb-8">{date}</p>
+      <div className="container mx-auto  pt-24 flex flex-col lg:flex-row">
+        {/* Article */}
+        <div className="mx-auto p-4">
+          <article className="prose prose-lg dark:prose-dark mx-auto">
+            <h1 className="text-4xl font-bold mb-4 text-text: dark:text-text-dark">
+              {title}
+            </h1>
+            <div className="flex space-x-4">
+              <p className="flex items-center mt-2 text-xs md:text-sm text-gray-700 dark:text-gray-300">
+                <span>
+                  <FeatherIcon
+                    icon="calendar"
+                    size={14}
+                    className="mr-2 text-primary"
+                  />
+                </span>
+                {date}
+              </p>
+              <p className="flex items-center mt-2 text-xs md:text-sm text-gray-700 dark:text-gray-300">
+                <span>
+                  <FeatherIcon
+                    icon="clock"
+                    size={14}
+                    className="mr-2 text-primary"
+                  />
+                </span>
+                {readingTime}
+              </p>
+              <p className="flex items-center mt-2 text-xs md:text-sm text-gray-700 dark:text-gray-300">
+                <span>
+                  <FeatherIcon
+                    icon="user"
+                    size={14}
+                    className="mr-2 text-primary"
+                  />
+                </span>
+                {author}
+              </p>
+            </div>
+            {/* Display Section Links */}
 
-        {/* Display Section Links */}
-        {sections.length > 0 && (
-          <nav className="mb-8">
-            <h2 className="text-2xl font-semibold mb-2">Sections</h2>
-            <ul className="list-disc ml-6">
-              {post.sections.map((heading) => (
-                <li key={heading?.id} className="mb-1">
-                  <a
-                    href={`#${heading?.id}`}
-                    className={`text-blue-600 hover:text-blue-800 ${
-                      heading?.level === "3" ? "ml-4" : ""
-                    }`}
+            {/* Post Content */}
+            <div
+              className="prose prose-lg dark:prose-dark"
+              dangerouslySetInnerHTML={{ __html: content }}
+            />
+
+            {/* Tags */}
+            <div className="mt-8">
+              <h4 className="text-lg font-semibold">Tags:</h4>
+              <ul className="list-none flex space-x-3 mt-2">
+                {tags.map((tag) => (
+                  <li
+                    key={tag}
+                    className="text-sm bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 px-2 py-1 rounded"
                   >
-                    {heading?.text}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        )}
-
-        {/* Post Content */}
-        <div
-          className="prose prose-lg dark:prose-dark"
-          dangerouslySetInnerHTML={{ __html: content }}
-        />
-
-        {/* Tags */}
-        <div className="mt-8">
-          <h4 className="text-lg font-semibold">Tags:</h4>
-          <ul className="list-none flex space-x-3 mt-2">
-            {tags.map((tag) => (
-              <li
-                key={tag}
-                className="text-sm bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 px-2 py-1 rounded"
-              >
-                {tag}
-              </li>
-            ))}
-          </ul>
+                    {tag}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </article>
         </div>
-      </article>
+
+        {/* Section */}
+        {sections.length > 0 && (
+          <aside className="lg:w-1/4 sticky top-24 self-start hidden lg:block">
+            <div className="p-4 border-l-2 border-l-gray-200 dark:border-l-gray-800">
+              <nav className="mb-8">
+                {/* <h2 className="text-xl font-semibold mb-2 text-gray-500">
+                  Sections
+                </h2> */}
+                <ul className="list-none ml-6">
+                  {post.sections.map((heading) => (
+                    <li key={heading?.id} className="mb-1">
+                      <a
+                        href={`#${heading?.id}`}
+                        className={`text-sm text-gray-500 dark:text-gray-400 hover:text-secondary dark:hover:text-secondary ${
+                          heading?.level === "3" ? "ml-4" : ""
+                        }
+                        ${
+                          activeSection === heading?.id
+                            ? "text-primary dark:text-primary"
+                            : ""
+                        }
+                        `}
+                      >
+                        {heading?.text}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            </div>
+          </aside>
+        )}
+      </div>
     </Layout>
   );
 }

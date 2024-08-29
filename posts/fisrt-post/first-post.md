@@ -2,13 +2,12 @@
 title: "My Blog Post with an Image"
 date: "2024-08-23"
 description: "This is a description of my blog post with an image."
+author: "irufano"
 tags:
   - JavaScript
   - React
   - Next.js
 ---
-
-# GG GAMING
 
 This post includes an image.
 
