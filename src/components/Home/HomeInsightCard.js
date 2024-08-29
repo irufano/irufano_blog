@@ -43,7 +43,7 @@ const HomeInsightsCard = ({
                       {post?.meta?.tags.map((tag) => (
                         <li
                           key={tag}
-                          className="text-xs bg-blue-300 dark:bg-blue-600 text-white px-2 py-1 rounded-lg"
+                          className="text-xs bg-accent dark:bg-accent-dark text-white px-2 py-1 rounded-lg"
                         >
                           {tag}
                         </li>

@@ -30,9 +30,9 @@ module.exports = {
           dark: "#46ECBA",
         },
         accent: {
-          light: "#2094F2",
-          DEFAULT: "#2094F2",
-          dark: "#2094F2",
+          light: "#93C5FD",
+          DEFAULT: "#93C5FD",
+          dark: "#4177EF",
         },
         surface: {
           light: "#FFFFFF",
