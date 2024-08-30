@@ -210,7 +210,7 @@ export default function PostPage({ post }) {
 
         {/* Section */}
         {sections.length > 0 && (
-          <aside className="lg:w-1/4 sticky top-24 self-start hidden lg:block">
+          <aside className="lg:w-1/4 sticky top-28 self-start hidden lg:block">
             <div className="p-4 border-l-2 border-l-gray-200 dark:border-l-gray-800">
               <nav className="mb-8">
                 {/* <h2 className="text-xl font-semibold mb-2 text-gray-500">
@@ -221,7 +221,7 @@ export default function PostPage({ post }) {
                     <li key={heading?.id} className="mb-1">
                       <a
                         href={`#${heading?.id}`}
-                        className={`text-sm text-gray-500 dark:text-gray-400 hover:text-secondary dark:hover:text-secondary ${
+                        className={`text-xs text-gray-500 dark:text-gray-400 hover:text-secondary dark:hover:text-secondary ${
                           heading?.level === "3" ? "ml-4" : ""
                         }
                         ${
