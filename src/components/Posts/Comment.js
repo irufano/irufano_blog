@@ -4,8 +4,8 @@ const Comment = () => {
   return (
     <div className="relative">
       {/* Overlay */}
-      <div className="absolute inset-0 bg-gray-700 bg-opacity-50 flex justify-center items-center rounded-lg">
-        <span className="text-white text-xl font-semibold">
+      <div className="absolute inset-0 bg-gray-700 bg-opacity-50 flex justify-center items-center rounded-lg p-4">
+        <span className="text-white text-xl font-semibold text-center">
           Sorry, comment is under maintenance
         </span>
       </div>
