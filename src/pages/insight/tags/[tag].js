@@ -74,7 +74,7 @@ export default function TagPage({ posts, tag }) {
         <ul>
           {paginatedPosts.map((post) => (
             <li key={post.slug} className="mb-4">
-              <Link href={`/insight/posts/${post.slug}`}>
+              <Link href={`/insight/post/${post.slug}`}>
                 <p className="text-blue-500">{post.meta?.title}</p>
               </Link>
             </li>

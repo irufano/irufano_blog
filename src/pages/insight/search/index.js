@@ -148,7 +148,7 @@ export default function SearchPage({ posts }) {
           <ul>
             {paginatedPosts.map((post) => (
               <li key={post.slug} className="mb-4">
-                <Link href={`/insight/posts/${post.slug}`}>
+                <Link href={`/insight/post/${post.slug}`}>
                   <p className="text-xl font-bold text-blue-500">
                     <span
                       dangerouslySetInnerHTML={{

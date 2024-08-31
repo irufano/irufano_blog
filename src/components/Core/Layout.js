@@ -13,27 +13,27 @@ export default function Layout({ children, type = LayoutType.DEV }) {
   switch (type) {
     case LayoutType.DEV:
       return (
-        <div className={`${ubuntu} font-ubuntu min-h-screen`}>
+        <div className={`${ubuntu} font-ubuntu flex flex-col min-h-screen`}>
           <DevNavbar />
-          <main className="font-ubuntu">{children}</main>
+          <main className="font-ubuntu flex-grow">{children}</main>
           <Footer />
         </div>
       );
 
     case LayoutType.INSIGHT:
       return (
-        <div className={`${ubuntu} font-ubuntu min-h-screen`}>
+        <div className={`${ubuntu} font-ubuntu flex flex-col min-h-screen`}>
           <InsightNavbar />
-          <main className="font-ubuntu">{children}</main>
+          <main className="font-ubuntu flex-grow">{children}</main>
           <Footer />
         </div>
       );
 
     default:
       return (
-        <div className={`${ubuntu} font-ubuntu min-h-screen`}>
+        <div className={`${ubuntu} font-ubuntu flex flex-col min-h-screen`}>
           <DevNavbar />
-          <main className="font-ubuntu">{children}</main>
+          <main className="font-ubuntu flex-grow">{children}</main>
           <Footer />
         </div>
       );

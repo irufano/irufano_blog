@@ -10,7 +10,7 @@ const HomeInsightsCard = ({
       <ul className="space-y-0 divide-y divide-slate-100 dark:divide-slate-900">
         {posts.map((post) => (
           <li key={post.slug}>
-            <Link href={`/insight/posts/${post.slug}`}>
+            <Link href={`/insight/post/${post.slug}`}>
               <div className="hover:bg-gray-50 hover:dark:bg-gray-800 rounded-md p-6 flex items-center justify-between">
                 <div>
                   <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
