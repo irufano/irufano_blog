@@ -87,28 +87,24 @@ export default function Insights({ posts, currentPage, totalPages }) {
 
         {/* Pagination */}
         <div className="mt-10 flex justify-between items-center mb-10">
-          {currentPage > 1 ? (
+          {currentPage > 1 && (
             <Link href={`/insight/${currentPage - 1}`}>
               <div className="p-2 px-4 rounded-md text-sm md:text-base bg-gray-100 dark:bg-gray-800 hover:bg-primary hover:dark:bg-primary text-primary hover:text-white ">
                 <p>Previous</p>
               </div>
             </Link>
-          ) : (
-            <div></div>
           )}
           <div>
-            <p className="text-sm md:text-base text-text dark:text-text-dark">
+            <p className="px-2 text-sm md:text-base text-text dark:text-text-dark">
               {currentPage} of {totalPages}
             </p>
           </div>
-          {currentPage < totalPages ? (
+          {currentPage < totalPages && (
             <Link href={`/insight/${currentPage + 1}`}>
               <div className="p-2 px-4 rounded-md text-sm md:text-base bg-gray-100 dark:bg-gray-800 hover:bg-primary hover:dark:bg-primary text-primary hover:text-white ">
                 <p>Next</p>
               </div>
             </Link>
-          ) : (
-            <div></div>
           )}
         </div>
       </div>
