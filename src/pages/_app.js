@@ -12,6 +12,15 @@ export default function MyApp({ Component, pageProps }) {
   const analyticsId = "G-787PK2XJ06";
 
   useEffect(() => {
+    // Check if the user has a stored preference for light or dark mode
+    if (localStorage.getItem("theme") === "light") {
+      document.documentElement.classList.remove("dark");
+    } else {
+      document.documentElement.classList.add("dark");
+    }
+  }, []);
+
+  useEffect(() => {
     if (process.env.NODE_ENV === "production") {
       // Register page view
       const handleRouteChange = (url) => {

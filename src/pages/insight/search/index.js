@@ -145,7 +145,7 @@ export default function SearchPage({ posts }) {
               setSearchQuery(e.target.value);
             }}
             placeholder="Search posts..."
-            className="px-4 py-2 text-text dark:text-text-dark border-2 rounded-md w-full bg-surface dark:bg-surface-dark border-gray-200 dark:border-gray-800 focus:border-primary active:border-primary"
+            className="px-4 py-2 text-text dark:text-text-dark border-2 rounded-md w-full bg-surface dark:bg-surface-dark border-gray-200 dark:border-gray-800 focus:border-emerald-600 dark:focus:border-emerald-600"
           />
           {/* <button
             type="submit"
@@ -169,7 +169,7 @@ export default function SearchPage({ posts }) {
                 className="p-4 hover:bg-gray-200 dark:hover:bg-gray-800 hover:rounded-md"
               >
                 <Link href={`/insight/post/${post.slug}`}>
-                  <p className="text-2xl font-bold text-primary">
+                  <p className="text-xl md:text-2xl font-bold text-primary">
                     <span
                       dangerouslySetInnerHTML={{
                         __html: highlightText(

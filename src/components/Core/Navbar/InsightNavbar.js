@@ -80,7 +80,7 @@ export default function InsightNavbar() {
             </button>
           </div>
           <div className="text-xl font-bold">
-            <Link href="/">
+            <Link href="/insight">
               <IrufanoInsightLogo />
             </Link>
           </div>
