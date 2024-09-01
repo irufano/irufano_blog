@@ -8,7 +8,7 @@ import FeatherIcon from "feather-icons-react";
 
 export async function getStaticProps() {
   const page = 1; // Start with the first page
-  const postsPerPage = 6;
+  const postsPerPage = 10;
   const { paginatedPosts, totalPosts } = getPosts(page, postsPerPage);
 
   return {
