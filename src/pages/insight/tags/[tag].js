@@ -88,7 +88,7 @@ export default function TagPage({ posts, tag }) {
         {paginatedPosts.length > 0 ? (
           <ul className="divide-y divide-gray-200 dark:divide-gray-800">
             {paginatedPosts.map((post) => (
-              <Link href={`/insight/post/${post.slug}`}>
+              <Link key={post.slug} href={`/insight/post/${post.slug}`}>
                 <li
                   key={post.slug}
                   className="p-4 hover:bg-gray-200 dark:hover:bg-gray-800 hover:rounded-md"
