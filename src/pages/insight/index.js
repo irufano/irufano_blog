@@ -31,7 +31,7 @@ export default function Insights({ posts, currentPage, totalPages }) {
         images={SEOInsight.openGraph.images}
       />
 
-      <div className="container mx-auto p-4 pt-20 md:pt-24">
+      <div className="container mx-auto p-4 pt-24">
         <h1 className="text-4xl font-bold mb-8 text-text dark:text-text-dark">
           Insights
         </h1>
@@ -96,7 +96,7 @@ export default function Insights({ posts, currentPage, totalPages }) {
           )}
           <div>
             <p className="px-2 text-sm md:text-base text-text dark:text-text-dark">
-              {currentPage} of {totalPages}
+              Page {currentPage} of {totalPages}
             </p>
           </div>
           {currentPage < totalPages && (
