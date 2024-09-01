@@ -3,6 +3,7 @@ import Link from "next/link";
 import SEOInsight from "../../../../insight-next-seo.config";
 import SEO from "@/components/Core/SEO";
 import Layout, { LayoutType } from "@/components/Core/Layout";
+import FeatherIcon from "feather-icons-react";
 
 export async function getStaticProps() {
   const tags = getAllTags();
@@ -24,14 +25,31 @@ export default function TagsPage({ tags }) {
         url={SEOInsight.openGraph.url}
         images={SEOInsight.openGraph.images}
       />
-      <div className="container mx-auto px-4 pt-20">
-        <h1 className="text-3xl font-bold mb-4">Tags</h1>
+      <div className="container mx-auto px-4 pt-24">
+        <div className="flex items-center mb-8">
+          <div className="p-2 bg-primary rounded-md shadow-md">
+            <FeatherIcon
+              icon="tag"
+              size={24}
+              strokeWidth={2}
+              className="text-white"
+            />
+          </div>
+          <h1 className="text-xl md:text-2xl ml-4 font-bold text-text dark:text-text-dark">
+            Tags
+          </h1>
+        </div>
+
         <ul>
           {tags.map((tag) => (
             <li key={tag} className="mb-2">
-              <Link href={`/insight/tags/${tag}`}>
-                <p className="text-blue-500">{tag}</p>
-              </Link>
+              <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <Link className="w-min" href={`/insight/tags/${tag}`}>
+                  <div className="px-4 py-2 bg-gray-200 dark:bg-gray-800 rounded-md hover:bg-gray-300 hover:dark:bg-gray-700">
+                    <p className="text-text dark:text-text-dark">{tag}</p>
+                  </div>
+                </Link>
+              </div>
             </li>
           ))}
         </ul>

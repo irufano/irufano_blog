@@ -164,11 +164,11 @@ export default function SearchPage({ posts }) {
         {paginatedPosts.length > 0 ? (
           <ul className="divide-y divide-gray-200 dark:divide-gray-800">
             {paginatedPosts.map((post) => (
-              <li
-                key={post.slug}
-                className="p-4 hover:bg-gray-200 dark:hover:bg-gray-800 hover:rounded-md"
-              >
-                <Link href={`/insight/post/${post.slug}`}>
+              <Link href={`/insight/post/${post.slug}`}>
+                <li
+                  key={post.slug}
+                  className="p-4 hover:bg-gray-200 dark:hover:bg-gray-800 hover:rounded-md"
+                >
                   <p className="text-xl md:text-2xl font-bold text-primary">
                     <span
                       dangerouslySetInnerHTML={{
@@ -179,28 +179,29 @@ export default function SearchPage({ posts }) {
                       }}
                     />
                   </p>
-                </Link>
-                <p className="text-sm font-semibold text-gray-500">
-                  {post.meta?.date}
-                </p>
-                {searchQuery && (
-                  <div className="text-sm">
-                    <span
-                      className="prose prose-lg dark:prose-dark"
-                      dangerouslySetInnerHTML={{
-                        __html: extractSubstring(
-                          post.rawContent,
-                          searchQuery.toLowerCase()
-                        ),
-                      }}
-                    />
-                    {/* {extractSubstring(
+
+                  <p className="text-sm font-semibold text-gray-500">
+                    {post.meta?.date}
+                  </p>
+                  {searchQuery && (
+                    <div className="text-sm">
+                      <span
+                        className="prose prose-lg dark:prose-dark"
+                        dangerouslySetInnerHTML={{
+                          __html: extractSubstring(
+                            post.rawContent,
+                            searchQuery.toLowerCase()
+                          ),
+                        }}
+                      />
+                      {/* {extractSubstring(
                       post.rawContent,
                       searchQuery.toLowerCase()
                     )} */}
-                  </div>
-                )}
-              </li>
+                    </div>
+                  )}
+                </li>
+              </Link>
             ))}
           </ul>
         ) : (
