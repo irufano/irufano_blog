@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "dev:lint": "npm-run-all --parallel eslint dev",
+    "dev:lint": "npm-run-all --parallel lint dev",
     "dev:eslint": "npm-run-all --parallel eslint dev",
     "build": "next build",
     "start": "next start",

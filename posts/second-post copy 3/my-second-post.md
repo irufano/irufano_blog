@@ -1,5 +1,5 @@
 ---
-title: "My second Post"
+title: "Consequat sint eiusmod aliqua ex magna dolor ut duis proident. Ut id id deserunt do velit elit dolore velit ipsum veniam."
 date: "2024-08-23"
 description: "This is a brief description of my first post."
 tags:

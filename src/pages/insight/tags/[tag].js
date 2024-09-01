@@ -40,7 +40,7 @@ export default function TagPage({ posts, tag }) {
   );
   const postsPerPage = 10;
 
-  useEffect(() => {
+  useEffect((currentPage) => {
     // if (currentPage !== 1) {
     //   //   const { paginatedPosts } = getPostsByTag(tag, currentPage, postsPerPage);
     //   setPosts(paginatedPosts);

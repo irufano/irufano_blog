@@ -26,7 +26,7 @@ export default function SearchPage({ posts }) {
   );
   const postsPerPage = 10;
 
-  useEffect(() => {
+  useEffect((currentPage, searchQuery) => {
     if (routerQuery.query !== searchQuery) {
       setSearchQuery(routerQuery.query || "");
     }
