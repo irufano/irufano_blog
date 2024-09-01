@@ -5,6 +5,7 @@ import { getPosts } from "@/utils/posts";
 import SEOInsight from "../../../../insight-next-seo.config";
 import SEO from "@/components/Core/SEO";
 import Layout, { LayoutType } from "@/components/Core/Layout";
+import FeatherIcon from "feather-icons-react";
 
 export async function getStaticProps() {
   const posts = getPosts(1, Infinity).paginatedPosts;
@@ -23,7 +24,7 @@ export default function SearchPage({ posts }) {
   const [currentPage, setCurrentPage] = useState(
     parseInt(routerQuery.page, 10) || 1
   );
-  const postsPerPage = 5;
+  const postsPerPage = 10;
 
   useEffect(() => {
     if (routerQuery.query !== searchQuery) {
@@ -119,37 +120,56 @@ export default function SearchPage({ posts }) {
         url={SEOInsight.openGraph.url}
         images={SEOInsight.openGraph.images}
       />
-      <div className="container mx-auto px-4 pt-16">
-        <h1 className="text-3xl font-bold mb-4">Search Posts</h1>
+      <div className="container mx-auto px-4 pt-24">
+        <div className="flex items-center mb-8">
+          <div className="p-2 bg-primary rounded-md shadow-md">
+            <FeatherIcon
+              icon="search"
+              size={24}
+              strokeWidth={4}
+              className="text-white"
+            />
+          </div>
+          <h1 className="text-2xl ml-4 font-bold text-text dark:text-text-dark">
+            Search Insight Posts
+          </h1>
+        </div>
 
         <form onSubmit={handleSearch} className="mb-8">
           <input
             type="text"
             value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
+            onChange={(e) => {
+              e.preventDefault();
+              setCurrentPage(1);
+              setSearchQuery(e.target.value);
+            }}
             placeholder="Search posts..."
-            className="px-4 py-2 border rounded-l w-64"
+            className="px-4 py-2 text-text dark:text-text-dark border-2 rounded-md w-full bg-surface dark:bg-surface-dark border-gray-200 dark:border-gray-800 focus:border-primary active:border-primary"
           />
-          <button
+          {/* <button
             type="submit"
             className="px-4 py-2 bg-blue-500 text-white rounded-r"
           >
             Search
-          </button>
+          </button> */}
         </form>
 
         {searchQuery && (
-          <p className="mb-4">
+          <p className="mb-4 text-text dark:text-text-dark">
             Results for: <span className="font-semibold">{searchQuery}</span>
           </p>
         )}
 
         {paginatedPosts.length > 0 ? (
-          <ul>
+          <ul className="divide-y divide-gray-200 dark:divide-gray-800">
             {paginatedPosts.map((post) => (
-              <li key={post.slug} className="mb-4">
+              <li
+                key={post.slug}
+                className="p-4 hover:bg-gray-200 dark:hover:bg-gray-800 hover:rounded-md"
+              >
                 <Link href={`/insight/post/${post.slug}`}>
-                  <p className="text-xl font-bold text-blue-500">
+                  <p className="text-2xl font-bold text-primary">
                     <span
                       dangerouslySetInnerHTML={{
                         __html: highlightText(
@@ -160,9 +180,11 @@ export default function SearchPage({ posts }) {
                     />
                   </p>
                 </Link>
-                <p className="text-lg font-semibold">{post.meta?.date}</p>
+                <p className="text-sm font-semibold text-gray-500">
+                  {post.meta?.date}
+                </p>
                 {searchQuery && (
-                  <div className="text-base">
+                  <div className="text-sm">
                     <span
                       className="prose prose-lg dark:prose-dark"
                       dangerouslySetInnerHTML={{
@@ -182,11 +204,40 @@ export default function SearchPage({ posts }) {
             ))}
           </ul>
         ) : (
-          <p>No posts found.</p>
+          <p className="py-8 text-text dark:text-text-dark">No posts found.</p>
         )}
 
         {/* Pagination Controls */}
         {totalPages > 1 && (
+          <div className="mt-10 flex justify-between items-center mb-10">
+            <button
+              onClick={() => handlePageChange(currentPage - 1)}
+              disabled={currentPage === 1}
+              className="p-2 px-4 rounded-md text-sm md:text-base bg-gray-100 dark:bg-gray-800 hover:bg-primary hover:dark:bg-primary text-primary hover:text-white disabled:text-gray-300 dark:disabled:text-gray-700 disabled:hover:bg-gray-100 dark:disabled:hover:bg-gray-800"
+            >
+              <div>
+                <p>Previous</p>
+              </div>
+            </button>
+
+            <div>
+              <p className="px-2 text-sm md:text-base text-text dark:text-text-dark">
+                Page {currentPage} of {totalPages}
+              </p>
+            </div>
+
+            <button
+              onClick={() => handlePageChange(currentPage + 1)}
+              disabled={currentPage === totalPages}
+              className="p-2 px-4 rounded-md text-sm md:text-base bg-gray-100 dark:bg-gray-800 hover:bg-primary hover:dark:bg-primary text-primary hover:text-white disabled:text-gray-300 dark:disabled:text-gray-700 disabled:hover:bg-gray-100 dark:disabled:hover:bg-gray-800"
+            >
+              <div>
+                <p>Next</p>
+              </div>
+            </button>
+          </div>
+        )}
+        {/* {totalPages > 1 && (
           <div className="mt-8 flex justify-between">
             <button
               onClick={() => handlePageChange(currentPage - 1)}
@@ -208,7 +259,7 @@ export default function SearchPage({ posts }) {
               Next
             </button>
           </div>
-        )}
+        )} */}
       </div>
     </Layout>
   );
