@@ -58,10 +58,7 @@ export default function Insights({ posts, currentPage, totalPages }) {
                   />
                 </div>
                 <div className="p-4">
-                  <h2 className="text-xl font-bold text-text dark:text-text-dark">
-                    {post.meta.title}
-                  </h2>
-                  <div className="flex space-x-4 mt-2">
+                  <div className="flex space-x-4 mb-2">
                     <p className="text-gray-400 dark:text-gray-500 text-xs md:text-sm flex items-center">
                       <span>
                         <FeatherIcon
@@ -78,6 +75,14 @@ export default function Insights({ posts, currentPage, totalPages }) {
                       </span>
                       {post.readingTime}
                     </p>
+                  </div>
+                  <div className="relative group">
+                    <h2 className="line-clamp-3 overflow-hidden text-ellipsis text-xl font-bold text-text dark:text-text-dark">
+                      {post.meta.title}
+                    </h2>
+                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-full p-2 bg-gray-700 text-white text-sm rounded invisible group-hover:visible">
+                      {post.meta.title}
+                    </div>
                   </div>
                 </div>
               </Link>
