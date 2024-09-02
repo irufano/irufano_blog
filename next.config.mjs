@@ -6,7 +6,7 @@ const nextConfig = {
       ? "https://irufano.github.io"
       : "http://localhost:3000",
   images: {
-    unoptimized: false,
+    unoptimized: true,
   },
   trailingSlash: false,
   reactStrictMode: true,
