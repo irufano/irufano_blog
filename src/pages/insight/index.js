@@ -77,7 +77,7 @@ export default function Insights({ posts, currentPage, totalPages }) {
                     </p>
                   </div>
                   <div className="relative group">
-                    <h2 className="line-clamp-3 overflow-hidden text-ellipsis text-xl font-bold text-text dark:text-text-dark">
+                    <h2 className="line-clamp-2 overflow-hidden text-ellipsis text-xl font-bold text-text dark:text-text-dark">
                       {post.meta.title}
                     </h2>
                     <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-full p-2 bg-gray-700 text-white text-sm rounded invisible group-hover:visible">
