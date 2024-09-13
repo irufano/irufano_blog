@@ -11,6 +11,24 @@ tags:
 
 This post includes an image.
 
+:::info
+This is an informational message.
+:::
+
+:::warning title="warning"
+This is a warning message.
+
+This is a warning message.
+:::
+
+:::danger
+This is a danger message.
+:::
+
+:::success
+This is a success message.
+:::
+
 ![Alt text for the image](/images/image.png)
 
 ```javascript title="gokil gaes"

@@ -39,6 +39,7 @@ export function getPostBySlug(slug) {
     .use(toc) // Generates a table of contents
     .use(html, { sanitize: false })
     .use(() => (tree) => {
+      // code
       visit(tree, "code", (node) => {
         const language = node.lang || "";
         const title = node.meta?.includes("title=")
@@ -79,6 +80,105 @@ export function getPostBySlug(slug) {
           </div>
           </div>
         `;
+      });
+
+      /// blocquote alert
+      visit(tree, "blockquote", (node) => {
+        // [info]
+        if (
+          node.children.length > 0 &&
+          node.children[0]?.children[0]?.value?.startsWith("[info]:")
+        ) {
+          let contents = [];
+          node.children.forEach((child) => {
+            child.children.forEach((child2) => {
+              console.log("\nlahh ", child2?.value);
+              contents.push(child2?.value?.replace("[info]:", ""));
+            });
+          });
+
+          node.type = "html";
+          node.value = `
+            <div class="info-block">
+            ${contents
+              .map((item) => `<p class="content-block">${item}</p>`)
+              .join("")
+              .replace(/\n/g, "<br/>")}
+            </div>
+          `;
+        }
+
+        // [warning]
+        if (
+          node.children.length > 0 &&
+          node.children[0]?.children[0]?.value?.startsWith("[warning]:")
+        ) {
+          let contents = [];
+          node.children.forEach((child) => {
+            child.children.forEach((child2) => {
+              console.log("\nlahh ", child2?.value);
+              contents.push(child2?.value?.replace("[warning]:", ""));
+            });
+          });
+
+          node.type = "html";
+          node.value = `
+            <div class="warning-block">
+            ${contents
+              .map((item) => `<p class="content-block">${item}</p>`)
+              .join("")
+              .replace(/\n/g, "<br/>")}
+            </div>
+          `;
+        }
+
+        // [danger]
+        if (
+          node.children.length > 0 &&
+          node.children[0]?.children[0]?.value?.startsWith("[danger]:")
+        ) {
+          let contents = [];
+          node.children.forEach((child) => {
+            child.children.forEach((child2) => {
+              console.log("\nlahh ", child2?.value);
+              contents.push(child2?.value?.replace("[danger]:", ""));
+            });
+          });
+
+          node.type = "html";
+          node.value = `
+            <div class="danger-block">
+            ${contents
+              .map((item) => `<p class="content-block">${item}</p>`)
+              .join("")
+              .replace(/\n/g, "<br/>")}
+            </div>
+          `;
+        }
+
+         // [success]
+         if (
+          node.children.length > 0 &&
+          node.children[0]?.children[0]?.value?.startsWith("[success]:")
+        ) {
+          let contents = [];
+          node.children.forEach((child) => {
+            child.children.forEach((child2) => {
+              console.log("\nlahh ", child2?.value);
+              contents.push(child2?.value?.replace("[success]:", ""));
+            });
+          });
+
+          node.type = "html";
+          node.value = `
+            <div class="success-block">
+            ${contents
+              .map((item) => `<p class="content-block">${item}</p>`)
+              .join("")
+              .replace(/\n/g, "<br/>")}
+            </div>
+          `;
+        }
       });
     })
     .processSync(content);

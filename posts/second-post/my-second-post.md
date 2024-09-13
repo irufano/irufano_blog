@@ -15,3 +15,14 @@ Laboris magna anim irure aliqua commodo sunt culpa fugiat mollit. Magna cupidata
 Exercitation elit occaecat aute officia cillum sunt deserunt duis laboris et in ut. Laborum culpa consequat mollit dolore voluptate cupidatat et. Eiusmod occaecat sunt adipisicing laboris dolore aute. Reprehenderit culpa commodo dolore duis cillum dolore amet. Et labore ut ipsum ullamco eiusmod.
 
 Dolor veniam eu tempor cillum. Officia reprehenderit aliqua proident dolore nostrud amet Lorem labore dolore incididunt commodo dolor. Irure ullamco reprehenderit id fugiat nulla est. Est deserunt irure laboris laboris culpa esse minim proident in laborum consequat ut aute consectetur. Veniam tempor adipisicing aliquip laboris do deserunt cupidatat. Duis veniam esse ut exercitation consequat fugiat occaecat excepteur aute exercitation. Ut ut irure do eu.
+
+
+> [info]: Quis mollit adipisicing incididunt aute quis in reprehenderit proident fugiat pariatur est. Eiusmod laborum dolor dolore ipsum est enim sunt eu fugiat proident aute. Dolore anim deserunt eu cupidatat tempor fugiat.
+> 
+> Duis tempor velit ex reprehenderit proident eiusmod ad. Mollit id commodo do id laboris officia proident irure aliqua cupidatat excepteur excepteur laborum tempor. Ullamco do occaecat laboris anim non nulla anim in cillum minim dolore culpa sunt duis. Ea culpa pariatur anim eu sunt aute dolor mollit nisi qui et. Consectetur enim voluptate dolor nulla ut eiusmod ullamco sit dolor esse proident elit ipsum in.
+
+> [warning]: Nisi ullamco incididunt eiusmod Lorem cillum enim. Elit ad aliquip ea sunt veniam esse consectetur sit pariatur. Duis tempor amet et consequat anim reprehenderit labore dolor. Deserunt voluptate consectetur ut quis pariatur nulla sit dolor laborum elit occaecat. Nisi consequat fugiat sunt reprehenderit duis et culpa consequat dolore tempor aliquip sint veniam reprehenderit. Aliqua dolor est anim labore aliquip commodo.
+
+> [danger]: Nisi ullamco incididunt eiusmod Lorem cillum enim. Elit ad aliquip ea sunt veniam esse consectetur sit pariatur. Duis tempor amet et consequat anim reprehenderit labore dolor. Deserunt voluptate consectetur ut quis pariatur nulla sit dolor laborum elit occaecat. Nisi consequat fugiat sunt reprehenderit duis et culpa consequat dolore tempor aliquip sint veniam reprehenderit. Aliqua dolor est anim labore aliquip commodo.
+
+> [success]: Nisi ullamco incididunt eiusmod Lorem cillum enim. Elit ad aliquip ea sunt veniam esse consectetur sit pariatur. Duis tempor amet et consequat anim reprehenderit labore dolor. Deserunt voluptate consectetur ut quis pariatur nulla sit dolor laborum elit occaecat. Nisi consequat fugiat sunt reprehenderit duis et culpa consequat dolore tempor aliquip sint veniam reprehenderit. Aliqua dolor est anim labore aliquip commodo.
