@@ -52,7 +52,7 @@ export function getPostBySlug(slug) {
 
         node.type = "html";
         node.value = `
-          <div class="header-code">
+          <div class="code-block">
           <div class="title-code">
             <span>${title}</span> 
               <button class="copy-code" data-code-id="${codeId}" aria-label="Copy code">
@@ -82,28 +82,99 @@ export function getPostBySlug(slug) {
         `;
       });
 
-      /// blocquote alert
+      /// inline code
+      visit(tree, "inlineCode", (node) => {
+        const highlightedCode = highlight.highlightAuto(node.value, [
+          "js",
+        ]).value;
+        node.type = "html";
+        node.value = `<span class="inline-code-block">${highlightedCode}</span>`;
+      });
+
+      /// emphasis
+      visit(tree, "emphasis", (node) => {
+        if (node?.children?.length > 0) {
+          node?.children.forEach((child) => {
+            if (child?.type === "strong" && child?.children?.length > 0) {
+              child?.children.forEach((child2) => {
+                node.type = "html";
+                node.value = `<span class="emphasis-strong-block">${child2?.value}</span>`;
+              });
+            } else {
+              node.type = "html";
+              node.value = `<span class="emphasis-block">${child?.value}</span>`;
+            }
+          });
+        } else {
+          node.type = "html";
+          node.value = `<span class="emphasis-block">${node?.value}</span>`;
+        }
+      });
+
+      /// strong
+      visit(tree, "strong", (node) => {
+        if (node?.children?.length > 0) {
+          node?.children.forEach((child) => {
+            node.type = "html";
+            node.value = `<span class="strong-block">${child.value}</span>`;
+          });
+        } else {
+          node.type = "html";
+          node.value = `<span class="strong-block">${node.value}</span>`;
+        }
+      });
+
+      /// blockquote
       visit(tree, "blockquote", (node) => {
         // [info]
         if (
           node.children.length > 0 &&
           node.children[0]?.children[0]?.value?.startsWith("[info]:")
         ) {
+          const keyword = "[info]:";
           let contents = [];
-          node.children.forEach((child) => {
-            child.children.forEach((child2) => {
-              console.log("\nlahh ", child2?.value);
-              contents.push(child2?.value?.replace("[info]:", ""));
-            });
+
+          node.children?.forEach((child) => {
+            console.log("\nlahh = ", child);
+            if (child?.type === "html") {
+              contents.push(
+                `<div class="content-code-block">${child?.value.replace(
+                  keyword,
+                  ""
+                )}</div>`
+              );
+            }
+
+            if (child?.type === "paragraph") {
+              if (child.children?.length > 0) {
+                let childContent = `
+                  <p class="content-block">
+                    ${child.children
+                      ?.map((item) =>
+                        item?.value
+                          ?.replace(keyword, "")
+                          ?.replace(/\n/g, "<br/>")
+                      )
+                      .join("")}
+                  </p>
+                `;
+                contents.push(childContent);
+              }
+            }
           });
 
           node.type = "html";
           node.value = `
             <div class="info-block">
-            ${contents
-              .map((item) => `<p class="content-block">${item}</p>`)
-              .join("")
-              .replace(/\n/g, "<br/>")}
+              <div class="title-block">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon-title-block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10" />
+                  <line x1="12" y1="16" x2="12" y2="12" />
+                  <line x1="12" y1="8" x2="12" y2="8" />
+                </svg>
+                <div class="text-title-block">Info</div>
+              </div>
+              ${contents.map((item) => item).join("")}
             </div>
           `;
         }
@@ -113,69 +184,204 @@ export function getPostBySlug(slug) {
           node.children.length > 0 &&
           node.children[0]?.children[0]?.value?.startsWith("[warning]:")
         ) {
+          const keyword = "[warning]:";
           let contents = [];
-          node.children.forEach((child) => {
-            child.children.forEach((child2) => {
-              console.log("\nlahh ", child2?.value);
-              contents.push(child2?.value?.replace("[warning]:", ""));
-            });
+
+          node.children?.forEach((child) => {
+            console.log("\nlahh = ", child);
+            if (child?.type === "html") {
+              contents.push(
+                `<div class="content-code-block">${child?.value.replace(
+                  keyword,
+                  ""
+                )}</div>`
+              );
+            }
+
+            if (child?.type === "paragraph") {
+              if (child.children?.length > 0) {
+                let childContent = `
+                  <p class="content-block">
+                    ${child.children
+                      ?.map((item) =>
+                        item?.value
+                          ?.replace(keyword, "")
+                          ?.replace(/\n/g, "<br/>")
+                      )
+                      .join("")}
+                  </p>
+                `;
+                contents.push(childContent);
+              }
+            }
           });
 
           node.type = "html";
           node.value = `
             <div class="warning-block">
-            ${contents
-              .map((item) => `<p class="content-block">${item}</p>`)
-              .join("")
-              .replace(/\n/g, "<br/>")}
+              <div class="title-block">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon-title-block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M12 8v4m0 4h.01" />
+                </svg>
+                <div class="text-title-block">Warning</div>
+              </div>
+              ${contents.map((item) => item).join("")}
             </div>
           `;
         }
 
-        // [danger]
+        // [caution]
         if (
           node.children.length > 0 &&
-          node.children[0]?.children[0]?.value?.startsWith("[danger]:")
+          node.children[0]?.children[0]?.value?.startsWith("[caution]:")
         ) {
+          const keyword = "[caution]:";
           let contents = [];
-          node.children.forEach((child) => {
-            child.children.forEach((child2) => {
-              console.log("\nlahh ", child2?.value);
-              contents.push(child2?.value?.replace("[danger]:", ""));
-            });
+
+          node.children?.forEach((child) => {
+            console.log("\nlahh = ", child);
+            if (child?.type === "html") {
+              contents.push(
+                `<div class="content-code-block">${child?.value.replace(
+                  keyword,
+                  ""
+                )}</div>`
+              );
+            }
+
+            if (child?.type === "paragraph") {
+              if (child.children?.length > 0) {
+                let childContent = `
+                  <p class="content-block">
+                    ${child.children
+                      ?.map((item) =>
+                        item?.value
+                          ?.replace(keyword, "")
+                          ?.replace(/\n/g, "<br/>")
+                      )
+                      .join("")}
+                  </p>
+                `;
+                contents.push(childContent);
+              }
+            }
           });
 
           node.type = "html";
           node.value = `
-            <div class="danger-block">
-            ${contents
-              .map((item) => `<p class="content-block">${item}</p>`)
-              .join("")
-              .replace(/\n/g, "<br/>")}
+            <div class="caution-block">
+              <div class="title-block">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon-title-block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M12 8v4m0 4h.01" />
+                </svg>
+                <div class="text-title-block">Caution</div>
+              </div>
+              ${contents.map((item) => item).join("")}
             </div>
           `;
         }
 
-         // [success]
-         if (
+        // [tip]
+        if (
           node.children.length > 0 &&
-          node.children[0]?.children[0]?.value?.startsWith("[success]:")
+          node.children[0]?.children[0]?.value?.startsWith("[tip]:")
         ) {
+          const keyword = "[tip]:";
           let contents = [];
-          node.children.forEach((child) => {
-            child.children.forEach((child2) => {
-              console.log("\nlahh ", child2?.value);
-              contents.push(child2?.value?.replace("[success]:", ""));
-            });
+
+          node.children?.forEach((child) => {
+            console.log("\nlahh = ", child);
+            if (child?.type === "html") {
+              contents.push(
+                `<div class="content-code-block">${child?.value.replace(
+                  keyword,
+                  ""
+                )}</div>`
+              );
+            }
+
+            if (child?.type === "paragraph") {
+              if (child.children?.length > 0) {
+                let childContent = `
+                  <p class="content-block">
+                    ${child.children
+                      ?.map((item) =>
+                        item?.value
+                          ?.replace(keyword, "")
+                          ?.replace(/\n/g, "<br/>")
+                      )
+                      .join("")}
+                  </p>
+                `;
+                contents.push(childContent);
+              }
+            }
           });
 
           node.type = "html";
           node.value = `
-            <div class="success-block">
-            ${contents
-              .map((item) => `<p class="content-block">${item}</p>`)
-              .join("")
-              .replace(/\n/g, "<br/>")}
+            <div class="tip-block">
+              <div class="title-block">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon-title-block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 18h6m-1 4h-4a1 1 0 01-1-1v-1h6v1a1 1 0 01-1 1zM12 2a7 7 0 00-7 7c0 2.95 1.5 5.5 4 7v1h6v-1c2.5-1.5 4-4.05 4-7a7 7 0 00-7-7z"/>
+                </svg>
+                <div class="text-title-block">Tip</div>
+              </div>
+              ${contents.map((item) => item).join("")}
+            </div>
+          `;
+        }
+
+        // [important]
+        if (
+          node.children.length > 0 &&
+          node.children[0]?.children[0]?.value?.startsWith("[important]:")
+        ) {
+          const keyword = "[important]:";
+          let contents = [];
+
+          node.children?.forEach((child) => {
+            console.log("\nlahh = ", child);
+            if (child?.type === "html") {
+              contents.push(
+                `<div class="content-code-block">${child?.value.replace(
+                  keyword,
+                  ""
+                )}</div>`
+              );
+            }
+
+            if (child?.type === "paragraph") {
+              if (child.children?.length > 0) {
+                let childContent = `
+                  <p class="content-block">
+                    ${child.children
+                      ?.map((item) =>
+                        item?.value
+                          ?.replace(keyword, "")
+                          ?.replace(/\n/g, "<br/>")
+                      )
+                      .join("")}
+                  </p>
+                `;
+                contents.push(childContent);
+              }
+            }
+          });
+
+          node.type = "html";
+          node.value = `
+            <div class="important-block">
+              <div class="title-block">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon-title-block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 3h18v14H8l-5 5V3z" />
+                  <path d="M12 8v4m0 4h.01" />
+                </svg>
+                <div class="text-title-block">Important</div>
+              </div>
+              ${contents.map((item) => item).join("")}
             </div>
           `;
         }
@@ -184,6 +390,7 @@ export function getPostBySlug(slug) {
     .processSync(content);
 
   const contentHtml = processedContent.toString();
+  // console.log("***DATANIH = ", contentHtml);
 
   // Extract headings for sections navigation
   const headings = [];
