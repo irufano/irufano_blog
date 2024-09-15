@@ -135,7 +135,6 @@ export function getPostBySlug(slug) {
           let contents = [];
 
           node.children?.forEach((child) => {
-            console.log("\nlahh = ", child);
             if (child?.type === "html") {
               contents.push(
                 `<div class="content-code-block">${child?.value.replace(
@@ -188,7 +187,6 @@ export function getPostBySlug(slug) {
           let contents = [];
 
           node.children?.forEach((child) => {
-            console.log("\nlahh = ", child);
             if (child?.type === "html") {
               contents.push(
                 `<div class="content-code-block">${child?.value.replace(
@@ -240,7 +238,6 @@ export function getPostBySlug(slug) {
           let contents = [];
 
           node.children?.forEach((child) => {
-            console.log("\nlahh = ", child);
             if (child?.type === "html") {
               contents.push(
                 `<div class="content-code-block">${child?.value.replace(
@@ -292,7 +289,6 @@ export function getPostBySlug(slug) {
           let contents = [];
 
           node.children?.forEach((child) => {
-            console.log("\nlahh = ", child);
             if (child?.type === "html") {
               contents.push(
                 `<div class="content-code-block">${child?.value.replace(
@@ -343,7 +339,6 @@ export function getPostBySlug(slug) {
           let contents = [];
 
           node.children?.forEach((child) => {
-            console.log("\nlahh = ", child);
             if (child?.type === "html") {
               contents.push(
                 `<div class="content-code-block">${child?.value.replace(
@@ -385,12 +380,55 @@ export function getPostBySlug(slug) {
             </div>
           `;
         }
+
+        // [note] without title header
+        if (
+          node.children.length > 0 &&
+          node.children[0]?.children[0]?.value?.startsWith("[note]:")
+        ) {
+          const keyword = "[note]:";
+          let contents = [];
+
+          node.children?.forEach((child) => {
+            if (child?.type === "html") {
+              contents.push(
+                `<div class="content-code-block">${child?.value.replace(
+                  keyword,
+                  ""
+                )}</div>`
+              );
+            }
+
+            if (child?.type === "paragraph") {
+              if (child.children?.length > 0) {
+                let childContent = `
+                  <p class="content-block">
+                    ${child.children
+                      ?.map((item) =>
+                        item?.value
+                          ?.replace(keyword, "")
+                          ?.replace(/\n/g, "<br/>")
+                      )
+                      .join("")}
+                  </p>
+                `;
+                contents.push(childContent);
+              }
+            }
+          });
+
+          node.type = "html";
+          node.value = `
+            <div class="note-block">
+              ${contents.map((item) => item).join("")}
+            </div>
+          `;
+        }
       });
     })
     .processSync(content);
 
   const contentHtml = processedContent.toString();
-  // console.log("***DATANIH = ", contentHtml);
 
   // Extract headings for sections navigation
   const headings = [];

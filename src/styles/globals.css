@@ -212,3 +212,20 @@ body {
 .important-block .content-code-block {
   @apply mb-2 text-base;
 }
+
+/* NOTE BLOCK */
+.note-block {
+  @apply bg-teal-100 dark:bg-teal-700/30 text-text/80 dark:text-text-dark/80 p-4 my-4 rounded-e-lg border-l-4 border-teal-300 dark:border-teal-800;
+}
+
+.note-block .content-block {
+  @apply m-0 text-base;
+}
+
+.note-block .content-block:has(+ *) {
+  @apply mb-2;
+}
+
+.note-block .content-code-block {
+  @apply mb-2 mt-4 text-base;
+}
