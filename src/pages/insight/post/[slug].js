@@ -189,7 +189,11 @@ export default function PostPage({ post }) {
               </h4>
               <div className="list-none flex flex-wrap gap-2 mt-2">
                 {tags.map((tag) => (
-                  <Link key={tag} href={`/insight/tags/${tag}`} className="no-underline">
+                  <Link
+                    key={tag}
+                    href={`/insight/tags/${tag}`}
+                    className="no-underline"
+                  >
                     <div
                       key={tag}
                       className="text-sm bg-accent dark:bg-accent-dark text-white  px-2 py-1 rounded-md hover:bg-accent/70 dark:hover:bg-accent-dark/70"
@@ -210,12 +214,12 @@ export default function PostPage({ post }) {
 
         {/* Section */}
         {sections.length > 0 && (
-          <aside className="lg:w-1/4 sticky top-24 self-start hidden lg:block">
+          <aside className="lg:w-1/4 sticky max-h-[80vh] overflow-auto top-24 mb-24 self-start hidden lg:block">
             <div className="p-4 border-l-2 border-l-gray-200 dark:border-l-gray-800">
               <nav className="mb-8">
-                {/* <h2 className="text-xl font-semibold mb-2 text-gray-500">
-                  Sections
-                </h2> */}
+                <h2 className="ml-6 text-base font-semibold mb-2 text-gray-500">
+                  Contents
+                </h2>
                 <ul className="list-none ml-6">
                   {post.sections.map((heading) => (
                     <li key={heading?.id} className="mb-1">
