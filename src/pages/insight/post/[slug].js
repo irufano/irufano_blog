@@ -58,7 +58,7 @@ export default function PostPage({ post }) {
 
       const deviceHeight = window.innerHeight;
       const currentScrollPosition =
-        window.scrollY + offset + deviceHeight * 0.75;
+        window.scrollY + offset + deviceHeight * 0.25;
 
       const currentSection = sectionOffsets.find((section, index) => {
         const nextSection = sectionOffsets[index + 1];
