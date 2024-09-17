@@ -8,6 +8,7 @@ import { throttle } from "lodash";
 import Link from "next/link";
 import ExpansionTile from "@/components/Button/ExpansionTile";
 import Comment from "@/components/Posts/Comment";
+import { usePathname } from "next/navigation";
 
 export async function getStaticPaths() {
   // Get all posts without pagination
@@ -28,6 +29,7 @@ export async function getStaticProps({ params }) {
 }
 
 export default function PostPage({ post }) {
+  const pathname = usePathname();
   const title = post.meta?.title;
   const description = post.meta?.description;
   const date = post.meta?.date;
@@ -106,18 +108,18 @@ export default function PostPage({ post }) {
       <SEO
         title={title}
         description={description}
+        url={SEOInsight.host + pathname}
         ogSiteName={SEOInsight.openGraph.site_name}
-        url={SEOInsight.openGraph.url}
         images={SEOInsight.openGraph.images}
       />
       <div className="container mx-auto pt-20 md:pt-24 lg:flex lg:flex-row">
         {/* Article */}
         <div className="mx-auto p-4">
           <article className="prose prose-lg dark:prose-dark mx-auto">
-            <h1 className="text-4xl font-bold mb-4 text-text: dark:text-text-dark">
+            <h1 className="text-4xl font-bold mb-4 text-text dark:text-text-heading">
               {title}
             </h1>
-            <div className="flex space-x-4">
+            <div className="flex space-x-4 mb-8">
               <p className="flex items-center mt-2 text-xs md:text-sm text-gray-700 dark:text-gray-300">
                 <span>
                   <FeatherIcon
@@ -157,15 +159,24 @@ export default function PostPage({ post }) {
             {/* Display Section Links */}
             {sections.length > 0 && (
               <div className="block lg:hidden mb-8 lg:mb-0">
-                <ExpansionTile title="Content">
+                <ExpansionTile title="Contents">
                   <div className="list-none">
                     {post.sections.map((heading) => (
-                      <div key={heading?.id} className="mb-1">
+                      <div
+                        key={heading?.id}
+                        className={`mb-1
+                        ${
+                          heading?.level === "3"
+                            ? "ml-4"
+                            : heading?.level === "4"
+                            ? "ml-8"
+                            : ""
+                        }
+                      `}
+                      >
                         <a
                           href={`#${heading?.id}`}
-                          className={`text-sm text-gray-500 dark:text-gray-400 hover:text-secondary dark:hover:text-secondary no-underline ${
-                            heading?.level === "3" ? "ml-4" : ""
-                          }`}
+                          className={`text-sm text-gray-500 dark:text-gray-400 hover:text-secondary dark:hover:text-secondary no-underline `}
                         >
                           {heading?.text}
                         </a>
@@ -222,12 +233,20 @@ export default function PostPage({ post }) {
                 </h2>
                 <ul className="list-none ml-6">
                   {post.sections.map((heading) => (
-                    <li key={heading?.id} className="mb-1">
+                    <li
+                      key={heading?.id}
+                      className={`mb-[0.3rem]
+                      ${
+                        heading?.level === "3"
+                          ? "ml-4"
+                          : heading?.level === "4"
+                          ? "ml-8"
+                          : ""
+                      }`}
+                    >
                       <a
                         href={`#${heading?.id}`}
-                        className={`text-xs text-gray-500 dark:text-gray-400 hover:text-secondary dark:hover:text-secondary ${
-                          heading?.level === "3" ? "ml-4" : ""
-                        }
+                        className={`text-xs text-gray-500 dark:text-gray-400 hover:text-secondary dark:hover:text-secondary 
                         ${
                           activeSection === heading?.id
                             ? "text-primary dark:text-primary"

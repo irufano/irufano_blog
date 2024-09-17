@@ -432,7 +432,7 @@ export function getPostBySlug(slug) {
 
   // Extract headings for sections navigation
   const headings = [];
-  const headingRegex = /<h([2-3]) id="(.+?)">(.+?)<\/h[2-3]>/g;
+  const headingRegex = /<h([2-4]) id="(.+?)">(.+?)<\/h[2-4]>/g;
   let match;
   while ((match = headingRegex.exec(contentHtml)) !== null) {
     headings.push({ level: match[1], id: match[2], text: match[3] });

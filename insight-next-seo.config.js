@@ -2,6 +2,7 @@ export default {
   title: "Irufano Insight - Tech Knowledge Docs",
   description: "Insights, ideas, stories, tutorials and technical documentations about technology, software development and other IT matters.",
   canonical: "https://irufano.github.io/insight",
+  host: "https://irufano.github.io",
   openGraph: {
     type: "website",
     locale: "en_US",
