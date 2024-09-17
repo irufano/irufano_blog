@@ -40,10 +40,10 @@ export default function TagsPage({ tags }) {
           </h1>
         </div>
 
-        <ul>
+        <ul className="flex flex-wrap gap-y-2 gap-x-4">
           {tags.map((tag) => (
             <li key={tag} className="mb-2">
-              <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              <div>
                 <Link className="w-min" href={`/insight/tags/${tag}`}>
                   <div className="px-4 py-2 bg-gray-200 dark:bg-gray-800 rounded-md hover:bg-gray-300 hover:dark:bg-gray-700">
                     <p className="text-text dark:text-text-dark">{tag}</p>
