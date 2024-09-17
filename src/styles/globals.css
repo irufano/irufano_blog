@@ -65,7 +65,7 @@ body {
 
 /* INFO BLOCK */
 .info-block {
-  @apply bg-blue-100 dark:bg-blue-700/30 text-text/80 dark:text-text-dark/80 p-4 my-4 rounded-e-lg border-l-4 border-blue-300 dark:border-blue-800;
+  @apply bg-blue-100 dark:bg-blue-700/30 text-text/80 dark:text-text-dark p-4 my-4 rounded-e-lg border-l-4 border-blue-300 dark:border-blue-800;
 }
 
 .info-block .title-block {
@@ -95,7 +95,7 @@ body {
 
 /* WARNING BLOCK */
 .warning-block {
-  @apply bg-yellow-100 dark:bg-yellow-300/30 text-text/80 dark:text-text-dark/80 p-4 my-4 rounded-e-lg border-l-4 border-yellow-300 dark:border-yellow-400;
+  @apply bg-yellow-100 dark:bg-yellow-300/30 text-text/80 dark:text-text-dark p-4 my-4 rounded-e-lg border-l-4 border-yellow-300 dark:border-yellow-400;
 }
 
 .warning-block .title-block {
@@ -125,7 +125,7 @@ body {
 
 /* CAUTION BLOCK */
 .caution-block {
-  @apply bg-red-100 dark:bg-red-700/30 text-text/80 dark:text-text-dark/80 p-4 my-4 rounded-e-lg border-l-4 border-red-300 dark:border-red-800;
+  @apply bg-red-100 dark:bg-red-700/30 text-text/80 dark:text-text-dark p-4 my-4 rounded-e-lg border-l-4 border-red-300 dark:border-red-800;
 }
 
 .caution-block .title-block {
@@ -155,7 +155,7 @@ body {
 
 /* TIP BLOCK */
 .tip-block {
-  @apply bg-emerald-100 dark:bg-emerald-700/30 text-text/80 dark:text-text-dark/80 p-4 my-4 rounded-e-lg border-l-4 border-emerald-300 dark:border-emerald-800;
+  @apply bg-emerald-100 dark:bg-emerald-700/30 text-text/80 dark:text-text-dark p-4 my-4 rounded-e-lg border-l-4 border-emerald-300 dark:border-emerald-800;
 }
 
 .tip-block .title-block {
@@ -185,7 +185,7 @@ body {
 
 /* IMPORTANT BLOCK */
 .important-block {
-  @apply bg-purple-100 dark:bg-purple-700/30 text-text/80 dark:text-text-dark/80 p-4 my-4 rounded-e-lg border-l-4 border-purple-300 dark:border-purple-800;
+  @apply bg-purple-100 dark:bg-purple-700/30 text-text/80 dark:text-text-dark p-4 my-4 rounded-e-lg border-l-4 border-purple-300 dark:border-purple-800;
 }
 
 .important-block .title-block {
@@ -215,7 +215,7 @@ body {
 
 /* NOTE BLOCK */
 .note-block {
-  @apply bg-teal-100 dark:bg-teal-700/30 text-text/80 dark:text-text-dark/80 p-4 my-4 rounded-e-lg border-l-4 border-teal-300 dark:border-teal-800;
+  @apply bg-teal-100 dark:bg-teal-700/30 text-text/80 dark:text-text-dark p-4 my-4 rounded-e-lg border-l-4 border-teal-300 dark:border-teal-800;
 }
 
 .note-block .content-block {
