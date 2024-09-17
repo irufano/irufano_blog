@@ -5,6 +5,7 @@ description: "Machine learning is a subset of AI that involves developing algori
 author: "irufano"
 tags:
   - Machine Learning
+image: "https://ogrisel.github.io/scikit-learn.org/sklearn-tutorial/_images/plot_multilabel_1.png"
 ---
 
 ## Definition
