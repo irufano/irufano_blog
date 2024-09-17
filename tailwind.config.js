@@ -52,7 +52,8 @@ module.exports = {
         text: {
           light: "#374151",
           DEFAULT: "#374151",
-          dark: "#f9fafb",
+          dark: "#E3E4E5",
+          heading: "#ECEDEE"
         },
         expansion: {
           light: "#EDF1F6",
@@ -63,77 +64,66 @@ module.exports = {
       typography: (theme) => ({
         DEFAULT: {
           css: {
-            color: theme("colors.gray.800"),
+            color: theme("colors.text.light"),
             a: {
-              color: theme("colors.blue.600"),
+              color: theme("colors.emerald.500"),
               "&:hover": {
-                color: theme("colors.blue.800"),
+                color: theme("colors.emerald.800"),
               },
             },
             h1: {
-              color: theme("colors.gray.900"),
+              color: theme("colors.text.light"),
             },
             h2: {
-              color: theme("colors.gray.900"),
+              color: theme("colors.text.light"),
             },
             h3: {
-              color: theme("colors.gray.900"),
+              color: theme("colors.text.light"),
+            },
+            h4: {
+              color: theme("colors.text.light"),
+            },
+            h5: {
+              color: theme("colors.text.light"),
+              fontWeight: "600",
+              fontSize: "1.1rem",
             },
             blockquote: {
-              borderLeftColor: theme("colors.gray.300"),
-              color: theme("colors.gray.600"),
+              borderLeftColor: theme("colors.text.light"),
+              color: theme("colors.text.light"),
             },
-            // code: {
-            //   color: theme("colors.pink.500"),
-            //   backgroundColor: theme("colors.gray.100"),
-            //   padding: "0.25rem 0.5rem",
-            //   borderRadius: theme("borderRadius.md"),
-            // },
-            // pre: {
-            //   backgroundColor: theme("colors.gray.900"),
-            //   color: theme("colors.gray.100"),
-            //   padding: "1rem",
-            //   borderRadius: theme("borderRadius.md"),
-            //   overflowX: "auto",
-            // },
-            // "pre code": {
-            //   backgroundColor: "transparent",
-            //   padding: 0,
-            //   borderRadius: 0,
-            //   fontSize: "0.875rem",
-            // },
           },
         },
         dark: {
           css: {
-            color: theme("colors.gray.300"),
+            color: theme("colors.text.dark"),
             a: {
-              color: theme("colors.blue.400"),
+              color: theme("colors.emerald.400"),
               "&:hover": {
-                color: theme("colors.blue.600"),
+                color: theme("colors.emerald.600"),
               },
             },
             h1: {
-              color: theme("colors.gray.100"),
+              color: theme("colors.text.heading"),
             },
             h2: {
-              color: theme("colors.gray.100"),
+              color: theme("colors.text.heading"),
             },
             h3: {
-              color: theme("colors.gray.100"),
+              color: theme("colors.text.heading"),
+            },
+            h4: {
+              color: theme("colors.text.heading"),
+            },
+            h5: {
+              color: theme("colors.text.heading"),
+              fontWeight: "600",
+              fontSize: "1.1rem",
             },
             blockquote: {
-              borderLeftColor: theme("colors.gray.700"),
-              color: theme("colors.gray.400"),
+              borderLeftColor: theme("colors.text.dark"),
+              color: theme("colors.text.dark"),
             },
-            // code: {
-            //   color: theme("colors.pink.400"),
-            //   backgroundColor: theme("colors.gray.800"),
-            // },
-            // pre: {
-            //   backgroundColor: theme("colors.gray.800"),
-            //   color: theme("colors.gray.300"),
-            // },
           },
         },
       }),
