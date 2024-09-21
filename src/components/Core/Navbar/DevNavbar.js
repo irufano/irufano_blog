@@ -7,12 +7,6 @@ import ThemeToggle from "../../Button/ThemeToggle";
 export default function DevNavbar({ solid = false }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const hrefRoot = "/wish";
-  const hrefPackages = "/wish/packages";
-
-  const onOdysseyClick = () => {
-    redirectToOdysseyWebsite();
-  };
 
   useEffect(() => {
     const handleScroll = () => {
