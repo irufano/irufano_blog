@@ -1,6 +1,7 @@
 export default {
   title: "Irufano Tools - Tech Knowledge Docs",
-  description: "Insights, ideas, stories, tutorials and technical documentations about technology, software development and other IT matters.",
+  description:
+    "Insights, ideas, stories, tutorials and technical documentations about technology, software development and other IT matters.",
   canonical: "https://irufano.github.io/tools",
   host: "https://irufano.github.io",
   openGraph: {
@@ -9,21 +10,22 @@ export default {
     url: "https://irufano.github.io/tools",
     site_name: "Irufano Insight",
     title: "Irufano Insight",
-    description: "Insights, ideas, stories, tutorials and technical documentations about technology, software development and other IT matters.",
+    description:
+      "Insights, ideas, stories, tutorials and technical documentations about technology, software development and other IT matters.",
     images: [
       {
-        url: "https://irufano.github.io/og-irufano-insight-01.png",
+        url: "https://irufano.github.io/images/insight-default.svg",
         width: 800,
         height: 600,
-        alt: "Irufano Tools",
-        type: "image/png",
+        alt: "Irufano Insight",
+        type: "image/svg",
       },
       {
-        url: "https://irufano.github.io/og-irufano-insight-02.png",
+        url: "https://irufano.github.io/images/insight-default.svg",
         width: 900,
         height: 800,
-        alt: "Irufano Tools",
-        type: "image/png",
+        alt: "Irufano Insight",
+        type: "image/svg",
       },
     ],
   },

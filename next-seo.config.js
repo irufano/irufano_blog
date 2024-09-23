@@ -1,6 +1,7 @@
 export default {
   title: "Irufano Dev - Developer Portal",
-  description: "A tech docs, insights about the software development and also provides several tools for anyone who need it",
+  description:
+    "A tech docs, insights about the software development and also provides several tools for anyone who need it",
   canonical: "https://irufano.github.io",
   openGraph: {
     type: "website",
@@ -8,21 +9,22 @@ export default {
     url: "https://irufano.github.io",
     site_name: "irufano Dev",
     title: "Irufano Dev - Developer Portal",
-    description: "A tech docs, insights about the software development and also provides several tools for anyone who need it",
+    description:
+      "A tech docs, insights about the software development and also provides several tools for anyone who need it",
     images: [
       {
-        url: "hhttps://irufano.github.io/og-irufano-01.png",
+        url: "https://irufano.github.io/images/insight-default.svg",
         width: 800,
         height: 600,
-        alt: "Og Image Alt",
-        type: "image/png",
+        alt: "Irufano Insight",
+        type: "image/svg",
       },
       {
-        url: "https://irufano.github.io/og-irufano-02.png",
+        url: "https://irufano.github.io/images/insight-default.svg",
         width: 900,
         height: 800,
-        alt: "Og Image Alt Second",
-        type: "image/png",
+        alt: "Irufano Insight",
+        type: "image/svg",
       },
     ],
   },
