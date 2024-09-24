@@ -9,6 +9,7 @@ import Link from "next/link";
 import ExpansionTile from "@/components/Button/ExpansionTile";
 import Comment from "@/components/Posts/Comment";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 export async function getStaticPaths() {
   // Get all posts without pagination
@@ -38,6 +39,7 @@ export default function PostPage({ post }) {
   const tags = post.meta?.tags ?? [];
   const readingTime = post.readingTime;
   const author = post.meta?.author;
+  const thumbnail = post.meta?.image ?? null;
 
   const [activeSection, setActiveSection] = useState(null);
 
@@ -110,7 +112,15 @@ export default function PostPage({ post }) {
         description={description}
         url={SEOInsight.host + pathname}
         ogSiteName={SEOInsight.openGraph.site_name}
-        images={SEOInsight.openGraph.images}
+        images={[
+          {
+            url: thumbnail,
+            width: 800,
+            height: 600,
+            alt: title,
+            type: "image/png",
+          },
+        ]}
       />
       <div className="container mx-auto pt-20 md:pt-24 lg:flex lg:flex-row">
         {/* Article */}
@@ -185,6 +195,35 @@ export default function PostPage({ post }) {
                   </div>{" "}
                 </ExpansionTile>
               </div>
+            )}
+
+            {/* Thumbnail */}
+            {thumbnail != null ? (
+              <div className="mb-4">
+                <Image
+                  src={thumbnail}
+                  alt={`${title} image`}
+                  layout="fill"
+                  className="!relative rounded-md shadow-sm mb-0"
+                />
+                <div className="flex justify-center mt-4 text-xs">
+                  <p className="p-0 mt-0 ">
+                    <i>
+                      {" "}
+                      Thumbnail{" "}
+                      <a
+                        className="no-underline"
+                        rel="stylesheet"
+                        href={thumbnail}
+                      >
+                        Credit
+                      </a>
+                    </i>
+                  </p>
+                </div>
+              </div>
+            ) : (
+              <></>
             )}
 
             {/* Post Content */}

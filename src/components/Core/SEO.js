@@ -7,11 +7,11 @@ const SEO = ({
   ogSiteName = "Irufano",
   ogImages = [
     {
-      url: "hhttps://irufano.github.io/og-irufano-01.png",
+      url: "https://irufano.github.io/images/insight-default.svg",
       width: 800,
       height: 600,
       alt: "Irufano",
-      type: "image/png",
+      type: "image/svg",
     },
   ],
 }) => {
