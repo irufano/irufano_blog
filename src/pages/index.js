@@ -25,21 +25,21 @@ export default function Home({ posts }) {
         {/* First Image */}
         <div className="absolute top-[5%] md:top-[6%] -left-[15%] md:-left-[5%]">
           <div className="relative">
-            <Image src={Logo} alt="-" className="w-40 md:w-72 2xl:w-[20rem] h-auto" priority={false} />
+            <Image src={Logo} alt="-" className="w-40 md:w-72 2xl:w-[20rem] h-auto" priority={true} />
           </div>
         </div>
 
         {/* Second Image */}
         <div className="absolute top-[15%] right-[5%]">
           <div className="relative" style={{ filter: "blur(100px)" }}>
-            <Image src={Logo} alt="-" className="w-20 md:w-60 h-auto" priority={false} />
+            <Image src={Logo} alt="-" className="w-20 md:w-60 h-auto" priority={true} />
           </div>
         </div>
 
         {/* Third Image */}
         <div className="absolute top-[20%] right-[40%]">
           <div className="relative" style={{ filter: "blur(100px)" }}>
-            <Image src={Logo} alt="-" className="w-25 md:w-80 h-auto" priority={false} />
+            <Image src={Logo} alt="-" className="w-25 md:w-80 h-auto" priority={true} />
           </div>
         </div>
 
