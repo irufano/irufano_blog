@@ -4,7 +4,6 @@ import HomeInsightsCard from "@/components/Home/HomeInsightCard";
 import ToolCard from "@/components/Home/ToolCard";
 import { getPosts } from "@/utils/posts";
 import Image from "next/image";
-import FeatherIcon from "feather-icons-react";
 import Logo from "../assets/irufano-square-logo.svg";
 
 export async function getStaticProps({ params }) {
@@ -26,21 +25,21 @@ export default function Home({ posts }) {
         {/* First Image */}
         <div className="absolute top-[5%] md:top-[6%] -left-[15%] md:-left-[5%]">
           <div className="relative">
-            <Image src={Logo} alt="-" className="w-40 md:w-72 2xl:w-[20rem] h-auto" />
+            <Image src={Logo} alt="-" className="w-40 md:w-72 2xl:w-[20rem] h-auto" priority={false} />
           </div>
         </div>
 
         {/* Second Image */}
         <div className="absolute top-[15%] right-[5%]">
           <div className="relative" style={{ filter: "blur(100px)" }}>
-            <Image src={Logo} alt="-" className="w-20 md:w-60 h-auto" />
+            <Image src={Logo} alt="-" className="w-20 md:w-60 h-auto" priority={false} />
           </div>
         </div>
 
         {/* Third Image */}
         <div className="absolute top-[20%] right-[40%]">
           <div className="relative" style={{ filter: "blur(100px)" }}>
-            <Image src={Logo} alt="-" className="w-25 md:w-80 h-auto" />
+            <Image src={Logo} alt="-" className="w-25 md:w-80 h-auto" priority={false} />
           </div>
         </div>
 
@@ -129,7 +128,7 @@ export default function Home({ posts }) {
                       for sponsor
                     </h2>
                     <div className="justify-center mx-auto w-ful w-6 h-auto mt-4">
-                      <Image src={Logo} alt="-" className=" w-ful w-6 h-auto" />
+                      <Image src={Logo} alt="-" className=" w-ful w-6 h-auto" priority={true} />
                     </div>
                   </div>
                 </div>
