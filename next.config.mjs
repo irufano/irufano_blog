@@ -9,7 +9,7 @@ const nextConfig = {
     unoptimized: true,
   },
   trailingSlash: false,
-  reactStrictMode: true,
+  reactStrictMode: false,
   webpack: (config) => {
     config.module.rules.push({
       test: /\.md$/,
