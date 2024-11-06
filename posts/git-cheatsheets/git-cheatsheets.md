@@ -4,8 +4,8 @@ date: "2024-11-01"
 description: "Git cheatsheet commonly used daily"
 author: "irufano"
 tags:
-  - AI
-  - Generative AI
+  - Git
+  - Cheatheets
 image: "https://git-scm.com/images/logos/2color-lightbg@2x.png"
 ---
 
