@@ -8,7 +8,6 @@ html {
 
 body {
   @apply bg-background dark:bg-background-dark;
-  user-select: none;
 }
 
 @layer utilities {
