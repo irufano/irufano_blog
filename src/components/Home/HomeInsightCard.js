@@ -39,11 +39,11 @@ const HomeInsightsCard = ({
                     </p>
                   </div>
                   <div className="mt-2">
-                    <ul className="list-none flex space-x-3 mt-2">
+                    <ul className="list-none flex flex-wrap items-start mt-3 space-x-2">
                       {post?.meta?.tags?.map((tag) => (
                         <li
                           key={tag}
-                          className="text-xs bg-accent dark:bg-accent-dark text-white px-2 py-1 rounded-lg"
+                          className="text-xs bg-accent dark:bg-accent-dark text-white px-2 py-1 mb-1 rounded-lg"
                         >
                           {tag}
                         </li>
